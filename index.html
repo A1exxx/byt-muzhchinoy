@@ -59,10 +59,11 @@ header.solid{background:rgba(11,11,12,.86);backdrop-filter:blur(12px);-webkit-ba
 /* ---------- первый экран ---------- */
 .hero{position:relative;min-height:100svh;display:flex;align-items:center;isolation:isolate;overflow:hidden}
 .hero picture,.hero picture img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2}
-.hero picture img{object-position:62% 55%;animation:slowzoom 24s ease-out both}
+.hero picture img{object-position:50% 55%;animation:slowzoom 24s ease-out both}
+@media (min-width:861px){.hero picture{left:auto;right:0;width:68%}}
 @keyframes slowzoom{from{transform:scale(1.08)}to{transform:scale(1)}}
 .hero::before{content:"";position:absolute;inset:0;z-index:-1;
-  background:linear-gradient(90deg,rgba(11,11,12,.94) 0%,rgba(11,11,12,.72) 38%,rgba(11,11,12,.05) 70%),
+  background:linear-gradient(90deg,var(--bg) 0%,var(--bg) 32%,rgba(11,11,12,.55) 46%,rgba(11,11,12,0) 66%),
              linear-gradient(0deg,var(--bg) 0%,rgba(11,11,12,0) 30%)}
 .hero .wrap{width:100%;padding-top:96px;padding-bottom:56px}
 .h1{font-family:var(--head);font-weight:700;text-transform:uppercase;line-height:.88;font-size:clamp(64px,10.5vw,148px);letter-spacing:-.005em}
@@ -88,7 +89,7 @@ header.solid{background:rgba(11,11,12,.86);backdrop-filter:blur(12px);-webkit-ba
 .val p{color:var(--muted);font-size:15px;margin-top:4px}
 
 /* ---------- цена ---------- */
-.price{margin:48px auto 0;display:grid;grid-template-columns:auto 1fr auto 1fr auto;align-items:center;gap:28px;padding:26px 32px;border:1.5px solid rgba(227,36,27,.6);border-radius:var(--r);
+.price{margin:48px auto 0;display:grid;grid-template-columns:auto auto 1px 1fr 1px auto;align-items:center;gap:28px;padding:26px 32px;border:1.5px solid rgba(227,36,27,.6);border-radius:var(--r);
   background:linear-gradient(100deg,rgba(227,36,27,.14),rgba(227,36,27,.02) 60%);box-shadow:0 0 60px -20px rgba(227,36,27,.45) inset}
 .price .ico{width:52px;height:52px;color:var(--red)}
 .price small{display:block;font-family:var(--head);text-transform:uppercase;letter-spacing:.08em;font-size:15px;color:#ddd}
@@ -227,10 +228,9 @@ details.more[open] summary{margin-bottom:6px}
 /* ---------- планшет и телефон ---------- */
 @media (max-width:1020px){
   .tabs .tab{padding:10px 9px;font-size:14px}
-  .price{grid-template-columns:auto 1fr auto;row-gap:18px}
-  .price .vline:nth-of-type(2){display:none}
-  .price .inc{grid-column:1/-1;order:3}
-  .price>.btn{grid-column:1/-1;order:4}
+  .price{grid-template-columns:auto 1fr;row-gap:18px}
+  .price .vline{display:none}
+  .price .inc,.price>.btn{grid-column:1/-1}
 }
 @media (max-width:860px){
   .bar{height:60px}
