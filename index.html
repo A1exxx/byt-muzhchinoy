@@ -1,0 +1,665 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Быть мужчиной — конференция, Пхукет, 22 ноября 2026</title>
+<meta name="description" content="Мужская конференция «Быть мужчиной»: характер, ценности, отцовство. 22 ноября 2026, Пхукет. Участие — 2 000 бат, обед включён.">
+<meta property="og:title" content="Быть мужчиной — конференция, 22 ноября, Пхукет">
+<meta property="og:description" content="Характер. Ценности. Отцовство. Участие — 2 000 бат, обед включён.">
+<meta property="og:image" content="img/og.jpg">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#0b0b0c">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%23e3241b'/%3E%3Cpath d='M6 24l7-12 4 6 3-4 6 10z' fill='%23fff'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Manrope:wght@400;500;600;700&family=Caveat:wght@600&display=swap" rel="stylesheet">
+<link rel="preload" as="image" href="img/hero.webp" media="(min-width: 768px)">
+<link rel="preload" as="image" href="img/hero-m.webp" media="(max-width: 767px)">
+<style>
+:root{
+  --bg:#0b0b0c; --bg2:#131315; --card:#161618; --line:rgba(255,255,255,.1);
+  --text:#f3f1ee; --muted:#a8a5a0; --red:#e3241b; --red2:#ff3b2f; --cyan:#3fc6e6;
+  --r:14px; --pad:clamp(16px,4vw,40px); --max:1200px;
+  --head:'Oswald',Impact,sans-serif; --body:'Manrope',system-ui,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{background:var(--bg);color:var(--text);font-family:var(--body);font-size:16px;line-height:1.55;overflow-x:hidden}
+img,video{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 var(--pad)}
+:focus-visible{outline:2px solid var(--red2);outline-offset:3px;border-radius:6px}
+
+/* ---------- кнопки ---------- */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:52px;padding:0 28px;border-radius:999px;
+  font-family:var(--head);font-weight:600;font-size:17px;letter-spacing:.06em;text-transform:uppercase;white-space:nowrap;
+  transition:transform .2s cubic-bezier(.2,.8,.2,1),background .2s,box-shadow .2s}
+.btn-red{background:var(--red);color:#fff;box-shadow:0 10px 30px -10px rgba(227,36,27,.7)}
+.btn-red:hover{background:var(--red2);transform:translateY(-2px)}
+.btn-red:active{transform:translateY(0) scale(.98)}
+.btn-ghost{border:1.5px solid rgba(255,255,255,.35);color:#fff}
+.btn-ghost:hover{border-color:#fff;background:rgba(255,255,255,.06)}
+.btn svg{width:18px;height:18px;flex:none}
+.link-more{display:inline-flex;align-items:center;gap:8px;font-family:var(--head);text-transform:uppercase;letter-spacing:.06em;font-size:15px;color:var(--text);opacity:.85}
+.link-more:hover{opacity:1;color:var(--red2)}
+
+/* ---------- шапка ---------- */
+header{position:fixed;inset:0 0 auto;z-index:40;transition:background .3s,backdrop-filter .3s}
+header.solid{background:rgba(11,11,12,.86);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.bar{display:flex;align-items:center;gap:24px;height:72px}
+.logo{font-family:var(--head);font-weight:700;line-height:.86;text-transform:uppercase;font-size:20px;letter-spacing:.01em}
+.logo b{color:var(--red);display:block}
+.tabs{display:flex;gap:4px;margin-left:auto}
+.tab{font-family:var(--head);font-weight:500;font-size:15px;text-transform:uppercase;letter-spacing:.06em;padding:10px 14px;border-radius:999px;color:#e9e6e1;transition:background .2s,color .2s}
+.tab:hover,.tab[aria-expanded=true]{background:rgba(255,255,255,.08);color:#fff}
+.bar .btn{min-height:44px;padding:0 22px;font-size:15px}
+
+/* ---------- первый экран ---------- */
+.hero{position:relative;min-height:100svh;display:flex;align-items:center;isolation:isolate;overflow:hidden}
+.hero picture,.hero picture img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2}
+.hero picture img{object-position:62% 55%;animation:slowzoom 24s ease-out both}
+@keyframes slowzoom{from{transform:scale(1.08)}to{transform:scale(1)}}
+.hero::before{content:"";position:absolute;inset:0;z-index:-1;
+  background:linear-gradient(90deg,rgba(11,11,12,.94) 0%,rgba(11,11,12,.72) 38%,rgba(11,11,12,.05) 70%),
+             linear-gradient(0deg,var(--bg) 0%,rgba(11,11,12,0) 30%)}
+.hero .wrap{width:100%;padding-top:96px;padding-bottom:56px}
+.h1{font-family:var(--head);font-weight:700;text-transform:uppercase;line-height:.88;font-size:clamp(64px,10.5vw,148px);letter-spacing:-.005em}
+.h1 .r{color:var(--red);display:block;text-shadow:0 6px 40px rgba(227,36,27,.35)}
+.kicker{font-family:var(--head);color:var(--cyan);text-transform:uppercase;letter-spacing:.42em;font-size:clamp(16px,2vw,22px);margin:14px 0 6px}
+.triad{font-family:var(--head);text-transform:uppercase;letter-spacing:.16em;font-size:clamp(14px,1.6vw,18px);color:#ddd}
+.triad i{color:var(--red);font-style:normal;margin:0 .4em}
+.facts{display:flex;flex-wrap:wrap;gap:16px 36px;margin:28px 0 30px}
+.fact{display:flex;gap:12px;align-items:center}
+.fact svg{width:34px;height:34px;color:var(--red);flex:none}
+.fact strong{display:block;font-family:var(--head);font-size:19px;letter-spacing:.04em;text-transform:uppercase;line-height:1.1}
+.fact span{color:var(--muted);font-size:14px}
+.cta-row{display:flex;flex-wrap:wrap;gap:12px}
+.script{position:absolute;right:var(--pad);top:120px;font-family:'Caveat',cursive;font-size:clamp(28px,3vw,42px);line-height:1;transform:rotate(-6deg);text-align:center;color:#fff;text-shadow:0 2px 20px rgba(0,0,0,.6)}
+.script::after{content:"";display:block;width:70%;height:3px;margin:8px auto 0;background:var(--red);border-radius:2px;transform:rotate(-2deg)}
+
+/* ---------- ценности ---------- */
+.values{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.val{padding:34px 20px;text-align:center}
+.val+.val{border-left:1px solid var(--line)}
+.val svg{width:44px;height:44px;color:var(--red);margin:0 auto 12px}
+.val h3{font-family:var(--head);text-transform:uppercase;letter-spacing:.08em;font-size:20px;font-weight:600}
+.val p{color:var(--muted);font-size:15px;margin-top:4px}
+
+/* ---------- цена ---------- */
+.price{margin:48px auto 0;display:grid;grid-template-columns:auto 1fr auto 1fr auto;align-items:center;gap:28px;padding:26px 32px;border:1.5px solid rgba(227,36,27,.6);border-radius:var(--r);
+  background:linear-gradient(100deg,rgba(227,36,27,.14),rgba(227,36,27,.02) 60%);box-shadow:0 0 60px -20px rgba(227,36,27,.45) inset}
+.price .ico{width:52px;height:52px;color:var(--red)}
+.price small{display:block;font-family:var(--head);text-transform:uppercase;letter-spacing:.08em;font-size:15px;color:#ddd}
+.price .sum{font-family:var(--head);font-weight:700;font-size:clamp(46px,6vw,68px);color:var(--red);line-height:1}
+.price .sum em{font-style:normal;font-size:.5em;margin-left:6px}
+.price .vline{width:1px;height:64px;background:var(--line)}
+.price .inc strong{display:block;font-family:var(--head);font-size:22px;text-transform:uppercase;letter-spacing:.03em;line-height:1.15}
+.price .inc span{color:var(--muted);font-size:14px}
+
+/* ---------- спикеры ---------- */
+section{padding:72px 0 0}
+.sec-head{display:flex;align-items:end;justify-content:space-between;gap:16px;margin-bottom:28px}
+.h2{font-family:var(--head);font-weight:700;text-transform:uppercase;font-size:clamp(38px,5vw,56px);line-height:1}
+.h2::after{content:"";display:block;width:56px;height:4px;background:var(--red);margin-top:12px;border-radius:2px}
+.speakers{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;align-items:end}
+.sp{position:relative;display:flex;flex-direction:column;text-align:left;border-radius:var(--r);overflow:hidden;border:1px solid var(--line);
+  background:radial-gradient(120% 70% at 70% 20%,rgba(227,36,27,.28),transparent 60%),linear-gradient(180deg,#1c1c1f,#0f0f11);
+  transition:transform .35s cubic-bezier(.2,.8,.2,1),border-color .3s,box-shadow .35s}
+.sp:hover{transform:translateY(-6px);border-color:rgba(227,36,27,.55);box-shadow:0 30px 60px -30px rgba(227,36,27,.5)}
+.sp.main{border-color:rgba(227,36,27,.45)}
+.sp .ph{position:relative;aspect-ratio:4/4.3;overflow:hidden;isolation:isolate}
+.sp .ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 12%;z-index:-1;
+  filter:saturate(.8) contrast(1.08) brightness(.92);transition:transform .6s cubic-bezier(.2,.8,.2,1),filter .4s}
+.sp:hover .ph img{transform:scale(1.04);filter:saturate(1) contrast(1.05) brightness(1)}
+/* общий тон для разных фонов: тёмные края, красный отсвет и полоса как на эскизе */
+.sp .ph::before{content:"";position:absolute;inset:0;
+  background:radial-gradient(90% 70% at 50% 30%,transparent 40%,rgba(11,11,12,.75) 100%),linear-gradient(200deg,rgba(227,36,27,.28),transparent 45%)}
+.sp .ph::after{content:"";position:absolute;inset:auto 0 0;height:45%;background:linear-gradient(0deg,#111113 4%,transparent)}
+.sp .ph i.streak{position:absolute;right:-6%;top:-8%;width:16%;height:120%;transform:rotate(12deg);opacity:.8;
+  background:linear-gradient(180deg,transparent,rgba(227,36,27,.9) 25%,rgba(150,12,8,.9) 75%,transparent);
+  -webkit-mask:repeating-linear-gradient(170deg,#000 0 7px,transparent 7px 11px);mask:repeating-linear-gradient(170deg,#000 0 7px,transparent 7px 11px)}
+.sp .ph svg.mnt{display:none}
+.sp .bd{padding:4px 22px 22px;position:relative}
+.sp h3{font-family:var(--head);text-transform:uppercase;font-size:28px;line-height:1;font-weight:700}
+.sp h3 span{color:var(--red);display:block}
+.sp .role{color:var(--muted);font-size:14px;margin:8px 0 14px;min-height:42px}
+.sp .tlabel{font-family:var(--head);color:var(--red);text-transform:uppercase;letter-spacing:.1em;font-size:13px}
+.sp .topic{font-family:var(--head);font-size:21px;line-height:1.15;text-transform:none;font-weight:500;margin-top:2px;padding-right:40px}
+.sp .arr{position:absolute;right:20px;bottom:22px;width:26px;height:26px;color:#fff;transition:transform .3s}
+.sp:hover .arr{transform:translateX(4px);color:var(--red2)}
+
+/* ---------- финальный призыв ---------- */
+.final{margin-top:80px;position:relative;overflow:hidden;border-top:1px solid var(--line);
+  background:radial-gradient(60% 120% at 15% 50%,rgba(227,36,27,.22),transparent 60%),var(--bg2)}
+.final .wrap{display:grid;grid-template-columns:1.2fr 1fr;gap:40px;align-items:center;padding-top:64px;padding-bottom:64px}
+.quote{font-family:var(--head);font-size:clamp(26px,3.2vw,40px);line-height:1.15;font-weight:500}
+.quote cite{display:block;font-family:var(--body);font-style:normal;color:var(--muted);font-size:15px;margin-top:12px}
+.final-cta{display:flex;flex-direction:column;gap:14px;align-items:flex-start}
+.final-cta p{color:var(--muted);font-size:15px}
+footer{padding:28px 0 calc(28px + env(safe-area-inset-bottom));color:var(--muted);font-size:14px;border-top:1px solid var(--line)}
+footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px}
+footer a{color:#ddd;text-decoration:underline;text-underline-offset:3px}
+
+/* ---------- окна вкладок ---------- */
+dialog.sheet{position:fixed;inset:0;margin:auto;width:min(960px,calc(100% - 32px));max-height:calc(100dvh - 48px);padding:0;border:1px solid var(--line);border-radius:18px;
+  background:#121214;color:var(--text);overflow:hidden;box-shadow:0 40px 120px rgba(0,0,0,.7)}
+dialog.sheet::backdrop{background:rgba(0,0,0,.72);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
+dialog.sheet[open]{animation:sheetin .35s cubic-bezier(.2,.8,.2,1)}
+dialog.sheet[open]::backdrop{animation:fade .3s ease}
+@keyframes sheetin{from{opacity:0;transform:translateY(24px) scale(.98)}to{opacity:1;transform:none}}
+@keyframes fade{from{opacity:0}}
+.sheet-in{display:flex;flex-direction:column;max-height:calc(100dvh - 48px)}
+.sheet-top{display:flex;align-items:center;gap:12px;padding:16px 20px;border-bottom:1px solid var(--line);flex:none}
+.sheet-tabs{display:flex;gap:4px;overflow-x:auto;scrollbar-width:none;flex:1}
+.sheet-tabs::-webkit-scrollbar{display:none}
+.sheet-tabs .tab{white-space:nowrap;font-size:14px;padding:8px 12px}
+.sheet-tabs .tab[aria-selected=true]{background:var(--red);color:#fff}
+.x{width:40px;height:40px;border-radius:50%;display:grid;place-items:center;background:rgba(255,255,255,.06);flex:none}
+.x:hover{background:rgba(255,255,255,.14)}
+.x svg{width:20px;height:20px}
+.sheet-body{overflow-y:auto;padding:28px clamp(20px,4vw,40px) 32px;overscroll-behavior:contain}
+.pane[hidden]{display:none}
+.pane h2{font-family:var(--head);text-transform:uppercase;font-size:clamp(30px,4vw,42px);line-height:1;margin-bottom:18px}
+.pane h2 em{color:var(--red);font-style:normal}
+.pane h4{font-family:var(--head);text-transform:uppercase;letter-spacing:.06em;font-size:16px;color:var(--red);margin:22px 0 8px}
+.pane p{color:#d6d3ce;margin-bottom:12px;max-width:62ch}
+.pane p.lead{font-size:18px;color:#fff}
+.pane ul{list-style:none;display:grid;gap:6px;margin-bottom:8px}
+.pane li{padding-left:18px;position:relative;color:#d6d3ce}
+.pane li::before{content:"";position:absolute;left:0;top:.7em;width:7px;height:7px;background:var(--red);border-radius:1px;transform:rotate(45deg)}
+.pane .btn{margin-top:14px}
+.about-grid{display:grid;grid-template-columns:300px 1fr;gap:32px;align-items:start}
+.vid{position:relative;border-radius:14px;overflow:hidden;background:#000;aspect-ratio:9/16;border:1px solid var(--line)}
+.vid video{width:100%;height:100%;object-fit:cover}
+.vid .play{position:absolute;inset:0;display:grid;place-items:center;background:linear-gradient(0deg,rgba(0,0,0,.55),rgba(0,0,0,.05))}
+.vid .play span{width:72px;height:72px;border-radius:50%;background:var(--red);display:grid;place-items:center;box-shadow:0 0 0 10px rgba(227,36,27,.25);transition:transform .2s}
+.vid .play:hover span{transform:scale(1.08)}
+.vid .play svg{width:28px;height:28px;margin-left:4px}
+.pull{font-family:var(--head);font-size:24px;text-transform:uppercase;color:#fff;border-left:4px solid var(--red);padding-left:14px;margin:18px 0}
+.meta{display:flex;flex-wrap:wrap;gap:10px;margin:6px 0 14px}
+.chip{display:inline-flex;align-items:center;gap:8px;padding:8px 14px;border-radius:999px;background:rgba(255,255,255,.06);border:1px solid var(--line);font-size:14px}
+.chip b{color:var(--red2)}
+/* спикеры в окне */
+.bio{display:grid;grid-template-columns:200px 1fr;gap:28px;padding:22px 0;border-bottom:1px solid var(--line)}
+.bio:first-of-type{padding-top:0}
+.bio:last-child{border-bottom:0}
+.bio .av{aspect-ratio:1;border-radius:14px;overflow:hidden;background:radial-gradient(90% 90% at 60% 30%,rgba(227,36,27,.35),#17171a 70%);position:relative}
+.bio .av img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 12%}
+.bio h3{font-family:var(--head);text-transform:uppercase;font-size:30px;line-height:1}
+.bio .r{color:var(--red)}
+.bio .sub{color:var(--muted);font-size:15px;margin:6px 0 10px}
+.bio .tp{font-family:var(--head);font-size:19px;margin-bottom:10px}
+.bio .tp b{color:var(--red);font-weight:500;text-transform:uppercase;font-size:13px;letter-spacing:.1em;display:block}
+.three{font-family:var(--head);text-transform:uppercase;letter-spacing:.08em;color:#fff;margin-top:6px}
+.three i{color:var(--red);font-style:normal;margin:0 .35em}
+details.more summary{list-style:none;cursor:pointer;display:inline-flex;gap:8px;align-items:center;font-family:var(--head);text-transform:uppercase;letter-spacing:.06em;font-size:14px;color:var(--red2);margin-top:4px}
+details.more summary::-webkit-details-marker{display:none}
+details.more summary::after{content:"+";font-size:18px}
+details.more[open] summary::after{content:"−"}
+details.more[open] summary{margin-bottom:6px}
+/* программа */
+.tl{display:grid;gap:0;margin-top:6px}
+.tl .row{display:grid;grid-template-columns:130px 1fr;gap:18px;padding:14px 0;border-bottom:1px dashed var(--line)}
+.tl .t{font-family:var(--head);font-size:19px;color:var(--red2);letter-spacing:.02em}
+.tl .w strong{display:block;font-family:var(--head);font-weight:500;font-size:20px;text-transform:uppercase;letter-spacing:.02em}
+.tl .w span{color:var(--muted);font-size:15px}
+.tl .row.hl .w strong{color:#fff}
+.tl .row.hl{background:linear-gradient(90deg,rgba(227,36,27,.12),transparent);margin:0 -12px;padding-left:12px;padding-right:12px;border-radius:10px}
+.motto{margin-top:20px;font-family:var(--head);text-transform:uppercase;letter-spacing:.1em;color:#fff}
+.motto i{color:var(--red);font-style:normal;margin:0 .4em}
+/* faq */
+.faq details{border-bottom:1px solid var(--line)}
+.faq summary{list-style:none;cursor:pointer;padding:18px 40px 18px 0;position:relative;font-family:var(--head);font-size:20px;font-weight:500}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"";position:absolute;right:6px;top:50%;width:12px;height:12px;border-right:2px solid var(--red);border-bottom:2px solid var(--red);transform:translateY(-70%) rotate(45deg);transition:transform .25s}
+.faq details[open] summary::after{transform:translateY(-30%) rotate(-135deg)}
+.faq details p{padding-bottom:16px;margin:0}
+
+/* ---------- нижняя кнопка на телефоне ---------- */
+.dock{display:none}
+
+/* ---------- появление ---------- */
+.rv{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s cubic-bezier(.2,.8,.2,1)}
+.rv.in{opacity:1;transform:none}
+
+/* ---------- планшет и телефон ---------- */
+@media (max-width:1020px){
+  .tabs .tab{padding:10px 9px;font-size:14px}
+  .price{grid-template-columns:auto 1fr auto;row-gap:18px}
+  .price .vline:nth-of-type(2){display:none}
+  .price .inc{grid-column:1/-1;order:3}
+  .price>.btn{grid-column:1/-1;order:4}
+}
+@media (max-width:860px){
+  .bar{height:60px}
+  .bar .tabs{display:none}
+  .bar .btn{margin-left:auto}
+  .mtabs{display:flex;gap:6px;overflow-x:auto;scrollbar-width:none;padding:0 var(--pad) 10px;-webkit-mask:linear-gradient(90deg,#000 85%,transparent)}
+  .mtabs::-webkit-scrollbar{display:none}
+  .mtabs .tab{white-space:nowrap;background:rgba(255,255,255,.07);font-size:13px;padding:7px 12px}
+  .script{display:none}
+  .speakers{grid-template-columns:1fr;gap:16px}
+  .sp.main{order:-1}
+  .sp{display:grid;grid-template-columns:42% 1fr;align-items:end}
+  .sp .ph{aspect-ratio:auto;height:100%;min-height:220px}
+  .sp .bd{padding:18px 16px 18px 6px}
+  .sp h3{font-size:24px}
+  .sp .role{min-height:0;margin:6px 0 10px;font-size:13px}
+  .sp .topic{font-size:18px;padding-right:28px}
+  .sp .arr{right:12px;bottom:16px;width:22px;height:22px}
+  .final .wrap{grid-template-columns:1fr;gap:24px}
+  .about-grid{grid-template-columns:1fr}
+  .about-grid .vid{max-width:340px;width:100%;margin:0 auto}
+  .bio{grid-template-columns:1fr;gap:14px}
+  .bio .av{max-width:220px}
+}
+@media (min-width:861px){.mtabs{display:none}}
+@media (max-width:640px){
+  body{font-size:15.5px}
+  .logo{font-size:17px}
+  .bar .btn{min-height:40px;padding:0 16px;font-size:14px}
+  .hero{align-items:flex-end;min-height:100svh}
+  .hero picture img{object-position:50% 40%}
+  .hero::before{background:linear-gradient(0deg,var(--bg) 6%,rgba(11,11,12,.82) 45%,rgba(11,11,12,.15) 75%,rgba(11,11,12,.55) 100%)}
+  .hero .wrap{padding-top:130px;padding-bottom:28px}
+  .h1{font-size:clamp(58px,18.5vw,84px)}
+  .kicker{letter-spacing:.3em;font-size:15px;margin-top:10px}
+  .triad{font-size:13px;letter-spacing:.1em}
+  .facts{gap:14px 22px;margin:20px 0 22px}
+  .fact svg{width:28px;height:28px}
+  .fact strong{font-size:17px}
+  .cta-row .btn{flex:1 1 100%}
+  .values{grid-template-columns:repeat(3,1fr)}
+  .val{padding:22px 6px}
+  .val svg{width:32px;height:32px;margin-bottom:8px}
+  .val h3{font-size:15px;letter-spacing:.04em}
+  .val p{font-size:12.5px;line-height:1.35}
+  .price{margin-top:32px;padding:20px 18px;gap:14px 16px;grid-template-columns:auto 1fr}
+  .price .vline{display:none}
+  .price .ico{width:40px;height:40px}
+  .price .inc strong{font-size:18px}
+  section{padding-top:52px}
+  .sec-head{margin-bottom:20px}
+  .final{margin-top:56px}
+  .final .wrap{padding-top:44px;padding-bottom:44px}
+  .final-cta .btn{width:100%}
+  footer{padding-bottom:calc(96px + env(safe-area-inset-bottom))}
+  .dock{display:flex;position:fixed;left:12px;right:12px;bottom:calc(12px + env(safe-area-inset-bottom));z-index:30;transform:translateY(140%);transition:transform .35s cubic-bezier(.2,.8,.2,1)}
+  .dock.on{transform:none}
+  .dock .btn{width:100%;box-shadow:0 14px 40px rgba(0,0,0,.6),0 10px 30px -10px rgba(227,36,27,.7)}
+  dialog.sheet{width:100%;max-width:100%;max-height:100dvh;height:100dvh;border-radius:0;border:0}
+  .sheet-in{max-height:100dvh;height:100%}
+  .sheet-top{padding:12px 12px 12px 14px;padding-top:calc(12px + env(safe-area-inset-top))}
+  .sheet-body{padding:22px 18px calc(32px + env(safe-area-inset-bottom))}
+  .tl .row{grid-template-columns:96px 1fr;gap:12px}
+  .tl .t{font-size:16px}
+  .tl .w strong{font-size:17px}
+  .faq summary{font-size:18px}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  .rv{opacity:1;transform:none}
+}
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+  <symbol id="i-tg" viewBox="0 0 24 24" fill="currentColor"><path d="M21.9 4.3 18.8 19c-.2 1-.8 1.3-1.7.8l-4.7-3.5-2.3 2.2c-.3.3-.5.5-1 .5l.3-4.8 8.8-7.9c.4-.3-.1-.5-.6-.2L6.7 12.9 2 11.4c-1-.3-1-1 .2-1.5L20.6 3c.8-.3 1.6.2 1.3 1.3z"/></symbol>
+  <symbol id="i-cal" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/><path d="M7 14h2M11 14h2M15 14h2M7 17h2M11 17h2" stroke-linecap="round"/></symbol>
+  <symbol id="i-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 22s7-6.2 7-12a7 7 0 1 0-14 0c0 5.8 7 12 7 12z"/><circle cx="12" cy="10" r="2.6"/></symbol>
+  <symbol id="i-x" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"/></symbol>
+  <symbol id="i-play" viewBox="0 0 24 24" fill="#fff"><path d="M7 4.5v15l13-7.5z"/></symbol>
+</svg>
+
+<header id="top">
+  <div class="wrap bar">
+    <a href="#" class="logo" aria-label="Быть мужчиной — наверх"><b>Быть</b>мужчиной</a>
+    <nav class="tabs" aria-label="Разделы">
+      <button class="tab" data-open="about">О конференции</button>
+      <button class="tab" data-open="speakers">Спикеры</button>
+      <button class="tab" data-open="program">Программа</button>
+      <button class="tab" data-open="place">Место</button>
+      <button class="tab" data-open="faq">Вопросы</button>
+    </nav>
+    <a class="btn btn-red" data-tg="ticket" href="#">Купить билет <svg><use href="#i-arrow"/></svg></a>
+  </div>
+  <nav class="mtabs" aria-label="Разделы">
+    <button class="tab" data-open="about">О конференции</button>
+    <button class="tab" data-open="speakers">Спикеры</button>
+    <button class="tab" data-open="program">Программа</button>
+    <button class="tab" data-open="place">Место</button>
+    <button class="tab" data-open="faq">Вопросы</button>
+  </nav>
+</header>
+
+<main>
+  <section class="hero" style="padding:0">
+    <picture>
+      <source media="(max-width:767px)" srcset="img/hero-m.webp" type="image/webp">
+      <source srcset="img/hero.webp" type="image/webp">
+      <img src="img/hero.jpg" alt="" fetchpriority="high">
+    </picture>
+    <p class="script" aria-hidden="true">Настоящий мужчина<br>оставляет след</p>
+    <div class="wrap">
+      <h1 class="h1"><span class="r">Быть</span>мужчиной</h1>
+      <p class="kicker">Конференция</p>
+      <p class="triad">Характер<i>·</i>Ценности<i>·</i>Отцовство</p>
+      <div class="facts">
+        <div class="fact"><svg><use href="#i-cal"/></svg><div><strong>22 ноября 2026</strong><span>12:00 – 18:00</span></div></div>
+        <div class="fact"><svg><use href="#i-pin"/></svg><div><strong>Пхукет</strong><span>адрес уточняется</span></div></div>
+      </div>
+      <div class="cta-row">
+        <a class="btn btn-red" data-tg="ticket" href="#">Купить билет <svg><use href="#i-arrow"/></svg></a>
+        <button class="btn btn-ghost" data-open="about"><svg><use href="#i-play"/></svg> Смотреть видео</button>
+      </div>
+    </div>
+  </section>
+
+  <div class="wrap">
+    <div class="values rv">
+      <div class="val">
+        <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M4 42 18 18l7 11 5-7 14 20z"/><path d="M18 18V6l8 3-8 3"/></svg>
+        <h3>Характер</h3><p>Быть твёрдым в вере и принципах</p>
+      </div>
+      <div class="val">
+        <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2"><circle cx="24" cy="24" r="19"/><path d="m31 17-4.5 9.5L17 31l4.5-9.5z" stroke-linejoin="round"/><path d="M24 5v4M24 39v4M5 24h4M39 24h4"/></svg>
+        <h3>Ценности</h3><p>Иметь направление в жизни и семье</p>
+      </div>
+      <div class="val">
+        <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2"><circle cx="17" cy="13" r="5"/><circle cx="33" cy="17" r="4"/><path d="M7 38v-6a10 10 0 0 1 20 0v6M27 38v-4a6 6 0 0 1 12 0v4"/></svg>
+        <h3>Отцовство</h3><p>Оставить наследие следующему поколению</p>
+      </div>
+    </div>
+
+    <div class="price rv">
+      <svg class="ico" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"><path d="M6 15h36v6a4 4 0 0 0 0 8v6H6v-6a4 4 0 0 0 0-8z"/><path d="M30 15v20" stroke-dasharray="3 3"/></svg>
+      <div><small>Стоимость участия</small><div class="sum">2 000<em>бат</em></div></div>
+      <span class="vline"></span>
+      <div class="inc"><small>В стоимость входит</small><strong>Участие и обед</strong><span>чай и кофе в перерывах</span></div>
+      <span class="vline"></span>
+      <a class="btn btn-red" data-tg="ticket" href="#">Купить билет <svg><use href="#i-arrow"/></svg></a>
+    </div>
+  </div>
+
+  <section id="speakers-sec">
+    <div class="wrap">
+      <div class="sec-head rv">
+        <h2 class="h2">Спикеры</h2>
+        <button class="link-more" data-open="speakers">Все о спикерах <svg width="18" height="18"><use href="#i-arrow"/></svg></button>
+      </div>
+      <div class="speakers">
+        <button class="sp rv" data-open="speakers" data-sp="velichko">
+          <div class="ph"><i class="streak"></i>
+            <svg class="mnt" viewBox="0 0 400 80" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M0 80 70 30l40 28 60-50 50 40 40-24 70 56"/></svg>
+            <img src="img/velichko.webp" alt="Александр Величко" loading="lazy" width="600" height="800">
+          </div>
+          <div class="bd">
+            <h3><span>Александр</span>Величко</h3>
+            <p class="role">Психолог, богослов, преподаватель, пастор церкви</p>
+            <p class="tlabel">Тема выступления</p>
+            <p class="topic">Целеустремлённая жизнь</p>
+            <svg class="arr"><use href="#i-arrow"/></svg>
+          </div>
+        </button>
+        <button class="sp main rv" data-open="speakers" data-sp="shabronov">
+          <div class="ph"><i class="streak"></i>
+            <svg class="mnt" viewBox="0 0 400 80" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M0 80 60 40l50 22 70-58 50 44 50-20 60 52"/></svg>
+            <img src="img/shabronov.webp" alt="Михаил Шабронов" loading="lazy" width="600" height="800">
+          </div>
+          <div class="bd">
+            <h3><span>Михаил</span>Шабронов</h3>
+            <p class="role">Психолог, богослов, пастор церкви</p>
+            <p class="tlabel">Тема выступления</p>
+            <p class="topic">Наивысшее предназначение мужчины</p>
+            <svg class="arr"><use href="#i-arrow"/></svg>
+          </div>
+        </button>
+        <button class="sp rv" data-open="speakers" data-sp="dubynin">
+          <div class="ph"><i class="streak"></i>
+            <svg class="mnt" viewBox="0 0 400 80" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M0 80 80 36l40 20 50-44 60 50 50-26 60 44"/></svg>
+            <img src="img/dubynin.webp" alt="Александр Дубынин" loading="lazy" width="600" height="800">
+          </div>
+          <div class="bd">
+            <h3><span>Александр</span>Дубынин</h3>
+            <p class="role">Консультант по семейным отношениям, пастор церкви</p>
+            <p class="tlabel">Тема выступления</p>
+            <p class="topic">Партнёрство для роста</p>
+            <svg class="arr"><use href="#i-arrow"/></svg>
+          </div>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <section class="final">
+    <div class="wrap">
+      <blockquote class="quote rv">«Будь твёрд и мужествен, не страшись и не ужасайся»<cite>Иисус Навин 1:9</cite></blockquote>
+      <div class="final-cta rv">
+        <a class="btn btn-red" data-tg="ticket" href="#">Купить билет <svg><use href="#i-arrow"/></svg></a>
+        <a class="btn btn-ghost" data-tg="question" href="#"><svg><use href="#i-tg"/></svg> Задать вопрос</a>
+        <p>Ответим в Telegram и расскажем, как оплатить участие.</p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>«Быть мужчиной» · 22 ноября 2026 · Пхукет</span>
+    <span>Билеты и вопросы — <a data-tg="question" href="#">в Telegram</a></span>
+  </div>
+</footer>
+
+<div class="dock"><a class="btn btn-red" data-tg="ticket" href="#">Купить билет · 2 000 бат <svg><use href="#i-arrow"/></svg></a></div>
+
+<!-- ============ окно с вкладками ============ -->
+<dialog class="sheet" id="sheet" aria-label="О конференции">
+  <div class="sheet-in">
+    <div class="sheet-top">
+      <div class="sheet-tabs" role="tablist">
+        <button class="tab" role="tab" data-pane="about">О конференции</button>
+        <button class="tab" role="tab" data-pane="speakers">Спикеры</button>
+        <button class="tab" role="tab" data-pane="program">Программа</button>
+        <button class="tab" role="tab" data-pane="place">Место</button>
+        <button class="tab" role="tab" data-pane="faq">Вопросы</button>
+      </div>
+      <button class="x" data-close aria-label="Закрыть"><svg><use href="#i-x"/></svg></button>
+    </div>
+    <div class="sheet-body">
+
+      <div class="pane" id="p-about" role="tabpanel">
+        <div class="about-grid">
+          <div class="vid">
+            <video id="aboutVideo" src="video/about.mp4" poster="video/poster.jpg" playsinline preload="none" controls></video>
+            <button class="play" aria-label="Смотреть видео"><span><svg><use href="#i-play"/></svg></span></button>
+          </div>
+          <div>
+            <h2>Быть <em>мужчиной</em></h2>
+            <div class="meta">
+              <span class="chip">📅 <b>22 ноября 2026</b></span>
+              <span class="chip">📍 Пхукет</span>
+              <span class="chip">💰 2 000 бат, обед включён</span>
+            </div>
+            <p class="lead">Что значит быть настоящим мужчиной? В чём заключается его сила, ответственность и предназначение?</p>
+            <p>«Быть мужчиной» — конференция для тех, кто хочет не просто добиваться успеха, а осознанно строить свою жизнь, укреплять характер, развивать отношения и быть опорой для близких.</p>
+            <p>Вместе с опытными спикерами мы поговорим о мужской зрелости, отцовстве, жизненных целях, ценностях и силе партнёрства.</p>
+            <p>Это время для честных разговоров, новых открытий, практических решений и общения с мужчинами, которые тоже стремятся расти.</p>
+            <p class="pull">Сильными не рождаются — сильными становятся!</p>
+            <p>Присоединяйся! Сделай шаг к тому, каким мужчиной ты хочешь стать.</p>
+            <a class="btn btn-red" data-tg="ticket" href="#">Купить билет <svg><use href="#i-arrow"/></svg></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="pane" id="p-speakers" role="tabpanel" hidden>
+        <h2>Спикеры</h2>
+        <article class="bio" id="bio-shabronov">
+          <div class="av"><img src="img/shabronov.webp" alt="Михаил Шабронов" loading="lazy"></div>
+          <div>
+            <h3><span class="r">Михаил</span> Шабронов</h3>
+            <p class="sub">Миссионер, пастор, психолог, богослов, преподаватель. Наставник в вопросах духовного роста, семьи и личностного развития.</p>
+            <p class="tp"><b>Тема выступления</b>Наивысшее предназначение мужчины</p>
+            <p>Пастор и миссионер с более чем 30-летним опытом публичных выступлений. На протяжении многих лет помогает людям находить жизненные ориентиры, укреплять семейные отношения и развиваться духовно.</p>
+            <details class="more"><summary>Подробнее</summary>
+              <p>Автор обучающих курсов о личностном росте, семейных ценностях и духовной жизни. Участник международных конференций, семинаров и образовательных мероприятий на темы лидерства, семьи и личностного роста.</p>
+              <h4>Образование и опыт</h4>
+              <ul><li>Психология</li><li>Богословие</li><li>Более 30 лет публичных выступлений</li><li>Разработка и проведение курсов о семье, духовной жизни и личностном развитии</li><li>Международные конференции и семинары</li></ul>
+              <h4>Семья</h4>
+              <p>Переехал из Москвы на Пхукет, где живёт и продолжает миссионерское и пасторское служение. Женат 24 года, отец троих детей. Убеждён, что характер мужчины проявляется прежде всего в его отношении к близким, верности своим принципам и готовности брать ответственность.</p>
+            </details>
+            <p class="three">Верность<i>·</i>Смелость<i>·</i>Ответственность</p>
+          </div>
+        </article>
+        <article class="bio" id="bio-velichko">
+          <div class="av"><img src="img/velichko.webp" alt="Александр Величко" loading="lazy"></div>
+          <div>
+            <h3><span class="r">Александр</span> Величко</h3>
+            <p class="sub">Пастор, психолог, богослов, писатель, преподаватель. Эксперт в вопросах отцовства и семейных отношений.</p>
+            <p class="tp"><b>Тема выступления</b>Целеустремлённая жизнь</p>
+            <p>Пастор с более чем 30-летним опытом, лидер Движения отцов Евразии. Уже 12 лет помогает мужчинам осознанно подходить к отцовству, укреплять семьи и формировать ценности, которые передаются следующим поколениям.</p>
+            <details class="more"><summary>Подробнее</summary>
+              <p>Автор книг, в том числе «Подросток: инструкция по взрослению», семинаров и тренингов для отцов и семей. Соавтор программы «50 привычек отца».</p>
+              <h4>Образование и опыт</h4>
+              <ul><li>Психология — МГУ</li><li>Когнитивно-поведенческая терапия и основы нейронауки — курсы Гарвардской медицинской школы (2026)</li><li>Богословие — Евроазиатская богословская семинария</li><li>Преподаёт семейную психологию, семейное кризисное консультирование, социальные технологии и богословие</li></ul>
+              <h4>Семья</h4>
+              <p>Живёт в Черногории. Женат 30 лет, отец четверых детей.</p>
+            </details>
+            <p class="three">Ответственность<i>·</i>Честь<i>·</i>Зрелость</p>
+          </div>
+        </article>
+        <article class="bio" id="bio-dubynin">
+          <div class="av"><img src="img/dubynin.webp" alt="Александр Дубынин" loading="lazy"></div>
+          <div>
+            <h3><span class="r">Александр</span> Дубынин</h3>
+            <p class="sub">Консультант по семейным отношениям, пастор церкви.</p>
+            <p class="tp"><b>Тема выступления</b>Партнёрство для роста</p>
+            <p>Подробный рассказ о спикере скоро появится здесь.</p>
+          </div>
+        </article>
+        <a class="btn btn-red" data-tg="ticket" href="#">Купить билет <svg><use href="#i-arrow"/></svg></a>
+      </div>
+
+      <div class="pane" id="p-program" role="tabpanel" hidden>
+        <h2>Программа <em>22 ноября</em></h2>
+        <div class="tl">
+          <div class="row"><div class="t">12:00–12:30</div><div class="w"><strong>Сбор участников</strong><span>Чай, кофе · открытие фотозоны · общение и знакомство</span></div></div>
+          <div class="row"><div class="t">12:30–13:00</div><div class="w"><strong>Открытие конференции</strong><span>Вступление · видеоролик «Почему эта тема важна» · знакомство со спикерами</span></div></div>
+          <div class="row hl"><div class="t">13:00–14:15</div><div class="w"><strong>Тема 1</strong><span>«Наивысшее предназначение мужчины — стать отцом»</span></div></div>
+          <div class="row"><div class="t">14:15–14:30</div><div class="w"><strong>Перерыв</strong><span>Чай, кофе, общение</span></div></div>
+          <div class="row hl"><div class="t">14:30–15:45</div><div class="w"><strong>Тема 2</strong><span>«Цель и направление семьи». Почему отец должен понимать, куда он ведёт свою семью и какие ценности передаёт детям</span></div></div>
+          <div class="row"><div class="t">15:45–16:15</div><div class="w"><strong>Обед</strong><span>Входит в стоимость участия</span></div></div>
+          <div class="row hl"><div class="t">16:15–17:30</div><div class="w"><strong>Практическая часть</strong><span>Обсуждение и практическое применение</span></div></div>
+          <div class="row"><div class="t">17:30–18:00</div><div class="w"><strong>Завершение конференции</strong><span>Подведение итогов · презентация Мужского клуба · благодарность участникам</span></div></div>
+          <div class="row"><div class="t">18:00</div><div class="w"><strong>Чай и свободное общение</strong></div></div>
+        </div>
+        <p class="motto">Сильный отец<i>·</i>сильная семья<i>·</i>сильное поколение</p>
+        <a class="btn btn-red" data-tg="ticket" href="#">Купить билет <svg><use href="#i-arrow"/></svg></a>
+      </div>
+
+      <div class="pane" id="p-place" role="tabpanel" hidden>
+        <h2>Место и время</h2>
+        <div class="meta">
+          <span class="chip">📅 <b>22 ноября 2026</b>, суббота</span>
+          <span class="chip">🕛 12:00 – 18:00</span>
+        </div>
+        <p class="lead">Конференция пройдёт на Пхукете. Точный адрес сейчас уточняется.</p>
+        <p>Как только место будет подтверждено, адрес появится здесь. Участникам, купившим билет, мы сообщим его лично в Telegram.</p>
+        <a class="btn btn-ghost" data-tg="address" href="#"><svg><use href="#i-tg"/></svg> Узнать адрес</a>
+      </div>
+
+      <div class="pane faq" id="p-faq" role="tabpanel" hidden>
+        <h2>Вопросы</h2>
+        <details open><summary>Как купить билет?</summary><p>Нажмите «Купить билет» — откроется переписка с организатором в Telegram. Он ответит и объяснит, как оплатить участие.</p></details>
+        <details><summary>Сколько стоит участие?</summary><p>2 000 бат. В стоимость входит участие в конференции и обед, в перерывах — чай и кофе.</p></details>
+        <details><summary>Когда и где?</summary><p>22 ноября 2026 года, с 12:00 до 18:00, Пхукет. Точный адрес уточняется — сообщим его после покупки билета.</p></details>
+        <details><summary>Для кого эта конференция?</summary><p>Для мужчин, которые хотят осознанно строить жизнь, укреплять характер, развивать отношения в семье и быть опорой для близких.</p></details>
+        <details><summary>Какие темы будут?</summary><p>Предназначение мужчины, цель и направление семьи, целеустремлённая жизнь, партнёрство для роста. Подробнее — во вкладке «Программа».</p></details>
+        <details><summary>Не нашёл ответа на свой вопрос</summary><p>Напишите нам — ответим лично.</p><a class="btn btn-ghost" data-tg="question" href="#" style="margin:0 0 16px"><svg><use href="#i-tg"/></svg> Задать вопрос</a></details>
+      </div>
+
+    </div>
+  </div>
+</dialog>
+
+<script>
+(() => {
+  // все кнопки ведут в личку организатора в Telegram, с готовым первым сообщением
+  const TG = 'elena_izmerova90';
+  const MSG = {
+    ticket:   'Здравствуйте! Хочу купить билет на конференцию «Быть мужчиной» 22 ноября. Подскажите, как оплатить?',
+    question: 'Здравствуйте! У меня вопрос о конференции «Быть мужчиной» 22 ноября.',
+    address:  'Здравствуйте! Подскажите, где пройдёт конференция «Быть мужчиной» 22 ноября?'
+  };
+  document.querySelectorAll('[data-tg]').forEach(a => {
+    a.href = `https://t.me/${TG}?text=${encodeURIComponent(MSG[a.dataset.tg] || MSG.question)}`;
+    a.target = '_blank';
+    a.rel = 'noopener';
+  });
+
+  // окно с вкладками
+  const sheet = document.getElementById('sheet');
+  const tabs = sheet.querySelectorAll('[data-pane]');
+  const panes = sheet.querySelectorAll('.pane');
+  const body = sheet.querySelector('.sheet-body');
+  const video = document.getElementById('aboutVideo');
+  const names = {about:'О конференции',speakers:'Спикеры',program:'Программа',place:'Место',faq:'Вопросы'};
+
+  function show(name, spk) {
+    if (!names[name]) name = 'about';
+    tabs.forEach(t => t.setAttribute('aria-selected', t.dataset.pane === name));
+    panes.forEach(p => p.hidden = p.id !== 'p-' + name);
+    sheet.setAttribute('aria-label', names[name]);
+    if (name !== 'about' && !video.paused) video.pause();
+    body.scrollTop = 0;
+    if (spk) {
+      const el = document.getElementById('bio-' + spk);
+      if (el) { requestAnimationFrame(() => { body.scrollTop = el.offsetTop - body.offsetTop - 8; }); el.querySelector('details')?.setAttribute('open', ''); }
+    }
+    sheet.querySelector(`[data-pane="${name}"]`).scrollIntoView({block:'nearest', inline:'center'});
+    history.replaceState(null, '', '#' + name);
+  }
+  function open(name, spk) {
+    if (!sheet.open) { sheet.showModal(); document.body.style.overflow = 'hidden'; }
+    show(name, spk);
+  }
+  function close() { sheet.close(); }
+  sheet.addEventListener('close', () => {
+    video.pause();
+    document.body.style.overflow = '';
+    history.replaceState(null, '', location.pathname + location.search);
+  });
+  document.querySelectorAll('[data-open]').forEach(b => b.addEventListener('click', e => { e.preventDefault(); open(b.dataset.open, b.dataset.sp); }));
+  tabs.forEach(t => t.addEventListener('click', () => show(t.dataset.pane)));
+  sheet.querySelector('[data-close]').addEventListener('click', close);
+  sheet.addEventListener('click', e => { if (e.target === sheet) close(); });
+
+  // видео: своя кнопка воспроизведения поверх обложки
+  const play = sheet.querySelector('.vid .play');
+  play.addEventListener('click', () => { play.hidden = true; video.play(); });
+  video.addEventListener('play', () => play.hidden = true);
+
+  // ссылка вида сайт/#program сразу открывает нужную вкладку
+  const h = location.hash.slice(1);
+  if (names[h]) open(h);
+
+  // шапка темнеет при прокрутке, нижняя кнопка на телефоне появляется после первого экрана
+  const header = document.querySelector('header');
+  const dock = document.querySelector('.dock');
+  const onScroll = () => {
+    const y = scrollY;
+    header.classList.toggle('solid', y > 40);
+    dock.classList.toggle('on', y > innerHeight * .7 && (innerHeight + y) < document.body.scrollHeight - 140);
+  };
+  addEventListener('scroll', onScroll, {passive:true}); onScroll();
+
+  // плавное появление блоков
+  const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }), {threshold:.12});
+  document.querySelectorAll('.rv').forEach(el => io.observe(el));
+})();
+</script>
+</body>
+</html>
