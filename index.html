@@ -1,6 +1,7 @@
 <!doctype html>
 <html lang="ru">
 <head>
+<noscript><style>.hero-art img{opacity:1!important}</style></noscript>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Быть мужчиной — конференция, Пхукет, 22 ноября 2026</title>
@@ -18,8 +19,8 @@
 <script src="legal/org.js"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Manrope:wght@400;500;600;700&family=Caveat:wght@600&display=swap" rel="stylesheet">
-<link rel="preload" as="image" href="img/hero-wide.webp" media="(min-width: 641px)">
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+<link rel="preload" as="image" href="img/hero-wide.webp" imagesrcset="img/hero-wide-800.webp 800w, img/hero-wide.webp 1254w" imagesizes="(max-width:1100px) 100vw, 60vw" type="image/webp" media="(min-width: 641px)">
 <link rel="preload" as="image" href="img/hero-tall.webp" media="(max-width: 640px)">
 <style>
 :root{
@@ -65,10 +66,10 @@ header.solid{background:rgba(11,11,12,.86);backdrop-filter:blur(12px);-webkit-ba
 .sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 .hero{position:relative;min-height:min(100svh,980px);display:flex;align-items:center;overflow:hidden;isolation:isolate;
   background:radial-gradient(80% 90% at 0% 40%,#0d2236 0%,#0a1220 45%,var(--bg) 100%)}
-.hero-art{position:absolute;top:0;right:0;bottom:0;width:60%;z-index:-1}
+.hero-art{position:absolute;top:0;right:0;bottom:0;width:60%;z-index:-1;background:url(data:image/webp;base64,UklGRkgBAABXRUJQVlA4IDwBAACQBwCdASogABIAPslQnUunpKKhsAwA8BkJbACdMoR13/uYSv8zyQAej1DZpqIsms722KWkw8i8SF6UXgLrSyp0bhJBFAAA/vK9Lg7XkxrqDyYd7YTFxTVJ4WarAcMVa2Ft0bF+y/HqRdwd29WGIgk8OXLAsKcz2gIGgsH9LkujgVzASaD5dDSwPK/bue/k8Bh05dJnYwgxsMnVdCtpVzNemOa8elHrW8IDCTAAsc3qYSqDm6/Wx5TU9q/EaiC96LSbNukr4K2krWix4pqHBz1WseXnx1fe6ngn1Gx0Cv0PiGGgjyqclCISspIKPhy9pteqtypJXNIuy/cjQrrncN36zgs7vzjKzblYqI5YpdS0KsXqbjpI+CNujNYVqBMa4r4yhfjygXBbu4KtM12RAS8ChYJGegNz4c6qAAAA) 60% 30%/cover;-webkit-mask:linear-gradient(90deg,transparent 0%,#000 30%);mask:linear-gradient(90deg,transparent 0%,#000 30%)}
 .hero-art img{width:100%;height:100%;object-fit:cover;object-position:60% 30%;
-  -webkit-mask:linear-gradient(90deg,transparent 0%,#000 30%);mask:linear-gradient(90deg,transparent 0%,#000 30%);
-  animation:slowzoom 20s ease-out both}
+  opacity:0;transition:opacity .6s ease}
+.hero-art img.ok{opacity:1;animation:slowzoom 20s ease-out both}
 .hero::after{content:"";position:absolute;inset:auto 0 0;height:22%;background:linear-gradient(0deg,var(--bg),transparent);z-index:-1}
 @keyframes slowzoom{from{transform:scale(1.06)}to{transform:scale(1)}}
 .hero-in{width:100%;padding-top:110px;padding-bottom:64px}
@@ -97,7 +98,7 @@ header.solid{background:rgba(11,11,12,.86);backdrop-filter:blur(12px);-webkit-ba
 @media (max-width:1100px) and (min-width:641px){
   .hero{display:block;min-height:0}
   .hero-art{position:relative;width:100%;height:auto;aspect-ratio:1254/695}
-  .hero-art img{-webkit-mask:linear-gradient(0deg,transparent 0%,#000 30%);mask:linear-gradient(0deg,transparent 0%,#000 30%)}
+  .hero-art{-webkit-mask:linear-gradient(0deg,transparent 0%,#000 30%);mask:linear-gradient(0deg,transparent 0%,#000 30%)}
   .hero-in{padding-top:0;margin-top:-60px;position:relative}
   .hero-in>*{max-width:none}
 }
@@ -287,8 +288,8 @@ details.more[open] summary{margin-bottom:6px}
   .bar .btn{min-height:40px;padding:0 16px;font-size:14px}
   .hero{display:block;min-height:0;background:var(--bg);padding:106px 0 0!important}
   .hero-art{position:relative;width:100%;height:auto;aspect-ratio:720/1120;margin:0}
-  .hero-art img{-webkit-mask:linear-gradient(0deg,transparent 0%,#000 22%);mask:linear-gradient(0deg,transparent 0%,#000 22%)}
-  .hero-art img{animation:none}
+  .hero-art{background-image:url(data:image/webp;base64,UklGRuQBAABXRUJQVlA4INgBAAAwCQCdASoYACYAPtFYoU0oJSMiKqwBABoJbAC7MyS1cHvFi29ATIC0suAlT/dWWabKF6+NKJy9481UN8MGhbsdblqD5K7CvCvC3dtYz5pICWQAAP7xugd3En9/qGGNBp7Wy2ubbv+d7ejaxWcndcdb7LlVZHBJJl3hAy5tVhYkyzy7d3pudVb7PmOZj1a2/U+30losg5Sw6SHM58Hyqcps6Z+5o+AloB5Zc8buPHShV2pUxvuZzRoAFmKzORdNRfm5CD92QetLylVU0V8S1cXX9hA/xFcFr9vGoCFTf7AaSqb5nu/FEmutrC1urutmJ9RmKwngOj2Hiv0BXnzEQfZmKuPY5PmZRcYsGmnbtAzvy2krI6IYWr9g8era4tUUR7TkSOlQdr0h51pHw44nWLjJGW/ryhwHC2pJ1W6cGLVacaIxr2uAezTc033IDGnL+/dI4lrLjzA902pUeYHKTm10/cz/I7HHwXjXhgUA01nmfqtgrfaYpKt7JRji31mR89/9yNvP/8wn4JT79VeYekzdWdyagGfvVOmW129D2cj/lDF7gKfjtBFQXw8V4N8WI34nSViYz3+uvKl8f63iSgbsMDGTwpZZUhKDxxv+swM/V5xuWMBwgAAA);background-position:center;-webkit-mask:linear-gradient(0deg,transparent 0%,#000 22%);mask:linear-gradient(0deg,transparent 0%,#000 22%)}
+  .hero-art img.ok{animation:none}
   .hero::after{display:none}
   .hero-in{padding-top:0;padding-bottom:20px;margin-top:-40px;position:relative}
   .hero-in>*{max-width:none}
@@ -373,8 +374,8 @@ details.more[open] summary{margin-bottom:6px}
   <section class="hero">
     <picture class="hero-art">
       <source media="(max-width:640px)" srcset="img/hero-tall.webp" type="image/webp">
-      <source srcset="img/hero-wide.webp" type="image/webp">
-      <img src="img/hero-wide.jpg" alt="Мужчина распахивает рубашку, на футболке надпись «Быть мужчиной. Характер. Ценности. Отцовство»" fetchpriority="high">
+      <source srcset="img/hero-wide-800.webp 800w, img/hero-wide.webp 1254w" sizes="(max-width:1100px) 100vw, 60vw" type="image/webp">
+      <img src="img/hero-wide.jpg" decoding="async" onload="this.classList.add('ok')" alt="Мужчина распахивает рубашку, на футболке надпись «Быть мужчиной. Характер. Ценности. Отцовство»" fetchpriority="high">
     </picture>
     <div class="wrap hero-in">
       <p class="hero-date">22 ноября 2026 <i></i> Пхукет</p>
@@ -634,6 +635,9 @@ details.more[open] summary{margin-bottom:6px}
 
 <script>
 (() => {
+  // если картинка первого экрана успела загрузиться раньше скрипта — показать сразу
+  document.querySelectorAll('.hero-art img').forEach(i => { if (i.complete && i.naturalWidth) i.classList.add('ok'); });
+
   // ===== настройки оплаты =====
   // Ссылка на оплату Stripe и данные организатора — в legal/org.js (одно место для обеих языковых версий).
   const PAY = { stripeLink: window.PAY_LINK || '' };
