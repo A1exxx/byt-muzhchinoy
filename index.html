@@ -86,6 +86,10 @@ header.solid{background:rgba(11,11,12,.86);backdrop-filter:blur(12px);-webkit-ba
 .fact strong{display:block;font-family:var(--head);font-size:19px;letter-spacing:.04em;text-transform:uppercase;line-height:1.1}
 .fact span{color:var(--muted);font-size:14px}
 .cta-row{display:flex;flex-wrap:wrap;gap:12px}
+.alt-pay{display:inline-block;margin-top:14px;color:var(--muted);font-size:14px;text-decoration:underline;text-underline-offset:3px}
+.alt-pay:hover{color:#fff}
+.price .alt-pay{grid-column:1/-1;justify-self:end;margin-top:-10px}
+.alt-pay[hidden]{display:none}
 .hero-in>*{max-width:min(640px,46vw)}
 .hero-in>.h1{max-width:none}
 @media (min-width:1600px){.hero-art{width:58%}}
@@ -381,6 +385,7 @@ details.more[open] summary{margin-bottom:6px}
         <a class="btn btn-red" data-tg="ticket" href="#">Купить билет <svg><use href="#i-arrow"/></svg></a>
         <button class="btn btn-ghost" data-open="about"><svg><use href="#i-play"/></svg> Смотреть видео</button>
       </div>
+      <a class="alt-pay" data-tg="altpay" href="#" hidden>Нет подходящей карты? Другой способ оплаты →</a>
     </div>
   </section>
 
@@ -407,6 +412,7 @@ details.more[open] summary{margin-bottom:6px}
       <div class="inc"><small>В стоимость входит</small><strong>Участие и обед</strong><span>чай и кофе в перерывах</span></div>
       <span class="vline"></span>
       <a class="btn btn-red" data-tg="ticket" href="#">Купить билет <svg><use href="#i-arrow"/></svg></a>
+      <a class="alt-pay" data-tg="altpay" href="#" hidden>Другой способ оплаты →</a>
     </div>
   </div>
 
@@ -627,7 +633,8 @@ details.more[open] summary{margin-bottom:6px}
   const MSG = {
     ticket:   'Здравствуйте! Хочу купить билет на конференцию «Быть мужчиной» 22 ноября. Подскажите, как оплатить?',
     question: 'Здравствуйте! У меня вопрос о конференции «Быть мужчиной» 22 ноября.',
-    address:  'Здравствуйте! Подскажите, где пройдёт конференция «Быть мужчиной» 22 ноября?'
+    address:  'Здравствуйте! Подскажите, где пройдёт конференция «Быть мужчиной» 22 ноября?',
+    altpay:   'Здравствуйте! Хочу купить билет на «Быть мужчиной» 22 ноября, но карта не подходит. Как ещё можно оплатить?'
   };
   // откуда пришёл человек (?utm_source=instagram) — передаём в Stripe и в сообщение в Telegram
   const src = (new URLSearchParams(location.search).get('utm_source') || '').replace(/[^\w-]/g, '').slice(0, 40);
@@ -642,7 +649,8 @@ details.more[open] summary{margin-bottom:6px}
     a.rel = 'noopener';
   });
   if (PAY.stripeLink) {
-    document.getElementById('faq-buy').textContent = 'Нажмите «Купить билет» и оплатите картой на защищённой странице Stripe. Квитанция придёт на e-mail — это и есть билет. На входе достаточно назвать имя.';
+    document.querySelectorAll('.alt-pay').forEach(el => el.hidden = false);
+    document.getElementById('faq-buy').textContent = 'Нажмите «Купить билет» и оплатите картой на защищённой странице Stripe. Квитанция придёт на e-mail — это и есть билет. На входе достаточно назвать имя. Карты российских банков Stripe не принимает — если у вас такая, нажмите «Другой способ оплаты», и организатор подскажет, как оплатить.';
   }
   if (PAY.legalReady) document.querySelectorAll('.legal-links').forEach(el => el.hidden = false);
 
