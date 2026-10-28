@@ -15,6 +15,7 @@
 <meta property="og:type" content="website">
 <meta name="theme-color" content="#0b0b0c">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%23e3241b'/%3E%3Cpath d='M6 24l7-12 4 6 3-4 6 10z' fill='%23fff'/%3E%3C/svg%3E">
+<script src="legal/org.js"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Manrope:wght@400;500;600;700&family=Caveat:wght@600&display=swap" rel="stylesheet">
@@ -161,7 +162,10 @@ section{padding:72px 0 0}
 .final-cta{display:flex;flex-direction:column;gap:14px;align-items:flex-start}
 .final-cta p{color:var(--muted);font-size:15px}
 footer{padding:28px 0 calc(28px + env(safe-area-inset-bottom));color:var(--muted);font-size:14px;border-top:1px solid var(--line)}
-footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px}
+footer .foot{display:flex;flex-direction:column;gap:14px}
+.foot-org{line-height:1.7;color:#cfcbc6}
+.foot-org b{color:#fff}
+.foot-row{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px}
 footer a{color:#ddd;text-decoration:underline;text-underline-offset:3px}
 
 /* ---------- окна вкладок ---------- */
@@ -379,7 +383,7 @@ details.more[open] summary{margin-bottom:6px}
       <div class="facts">
         <div class="fact"><svg><use href="#i-cal"/></svg><div><strong>22 ноября</strong><span>12:00 – 18:00</span></div></div>
         <div class="fact"><svg><use href="#i-pin"/></svg><div><strong>Пхукет</strong><span>адрес уточняется</span></div></div>
-        <div class="fact"><svg><use href="#i-ticket"/></svg><div><strong>2 000 бат</strong><span>обед включён</span></div></div>
+        <div class="fact"><svg><use href="#i-ticket"/></svg><div><strong>2 000 THB</strong><span>обед включён</span></div></div>
       </div>
       <div class="cta-row">
         <a class="btn btn-red" data-tg="ticket" href="#">Купить билет <svg><use href="#i-arrow"/></svg></a>
@@ -407,7 +411,7 @@ details.more[open] summary{margin-bottom:6px}
 
     <div class="price rv">
       <svg class="ico" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"><path d="M6 15h36v6a4 4 0 0 0 0 8v6H6v-6a4 4 0 0 0 0-8z"/><path d="M30 15v20" stroke-dasharray="3 3"/></svg>
-      <div><small>Стоимость участия</small><div class="sum">2 000<em>бат</em></div></div>
+      <div><small>Стоимость участия</small><div class="sum">2 000<em>THB</em></div></div>
       <span class="vline"></span>
       <div class="inc"><small>В стоимость входит</small><strong>Участие и обед</strong><span>чай и кофе в перерывах</span></div>
       <span class="vline"></span>
@@ -479,10 +483,17 @@ details.more[open] summary{margin-bottom:6px}
 </main>
 
 <footer>
-  <div class="wrap">
-    <span>«Быть мужчиной» · 22 ноября 2026 · Пхукет</span>
-    <span>Билеты и вопросы — <a data-tg="question" href="#">в Telegram</a></span>
-    <span class="legal-links" hidden><a href="legal/terms.html">Условия участия</a> · <a href="legal/refund.html">Возврат</a> · <a href="legal/privacy.html">Конфиденциальность</a></span>
+  <div class="wrap foot">
+    <div class="foot-org" data-org-ready hidden>
+      <b>Организатор:</b> <span data-org="name"></span><span data-org-if="reg">, рег. номер <span data-org="reg"></span></span><br>
+      <span data-org="address"></span><br>
+      <span data-org="email"></span><span data-org-if="phone"> · <span data-org="phone"></span></span> · Telegram <a data-tg="question" href="#">@elena_izmerova90</a>
+    </div>
+    <div class="foot-row">
+      <span>«Быть мужчиной» · 22 ноября 2026 · Пхукет</span>
+      <span class="legal-links" data-org-ready hidden><a href="legal/terms.html">Условия участия</a> · <a href="legal/refund.html">Возврат и отмена</a> · <a href="legal/privacy.html">Конфиденциальность</a></span>
+      <span>Билеты и вопросы — <a data-tg="question" href="#">в Telegram</a> · <a href="en.html" lang="en">English</a></span>
+    </div>
   </div>
 </footer>
 
@@ -624,9 +635,8 @@ details.more[open] summary{margin-bottom:6px}
 <script>
 (() => {
   // ===== настройки оплаты =====
-  // stripeLink — ссылка Stripe Payment Link (https://buy.stripe.com/...). Пусто — «Купить билет» ведёт в Telegram.
-  // legalReady — true, когда в legal/*.html заполнены данные организатора: тогда в подвале появятся ссылки на условия.
-  const PAY = { stripeLink: '', legalReady: false };
+  // Ссылка на оплату Stripe и данные организатора — в legal/org.js (одно место для обеих языковых версий).
+  const PAY = { stripeLink: window.PAY_LINK || '' };
 
   // все кнопки ведут в личку организатора в Telegram, с готовым первым сообщением
   const TG = 'elena_izmerova90';
@@ -652,7 +662,6 @@ details.more[open] summary{margin-bottom:6px}
     document.querySelectorAll('.alt-pay').forEach(el => el.hidden = false);
     document.getElementById('faq-buy').textContent = 'Нажмите «Купить билет» и оплатите картой на защищённой странице Stripe. Квитанция придёт на e-mail — это и есть билет. На входе достаточно назвать имя. Карты российских банков Stripe не принимает — если у вас такая, нажмите «Другой способ оплаты», и организатор подскажет, как оплатить.';
   }
-  if (PAY.legalReady) document.querySelectorAll('.legal-links').forEach(el => el.hidden = false);
 
   // окно с вкладками
   const sheet = document.getElementById('sheet');
