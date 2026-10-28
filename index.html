@@ -15,8 +15,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Manrope:wght@400;500;600;700&family=Caveat:wght@600&display=swap" rel="stylesheet">
-<link rel="preload" as="image" href="img/poster-wide.webp" media="(min-width: 768px)">
-<link rel="preload" as="image" href="img/poster-tall.webp" media="(max-width: 767px)">
+<link rel="preload" as="image" href="img/hero-wide.webp" media="(min-width: 641px)">
+<link rel="preload" as="image" href="img/hero-tall.webp" media="(max-width: 640px)">
 <style>
 :root{
   --bg:#0b0b0c; --bg2:#131315; --card:#161618; --line:rgba(255,255,255,.1);
@@ -57,23 +57,45 @@ header.solid{background:rgba(11,11,12,.86);backdrop-filter:blur(12px);-webkit-ba
 .tab:hover,.tab[aria-expanded=true]{background:rgba(255,255,255,.08);color:#fff}
 .bar .btn{min-height:44px;padding:0 22px;font-size:15px}
 
-/* ---------- первый экран: постер ---------- */
+/* ---------- первый экран: кадр постера справа, текст слева ---------- */
 .sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
-.hero{position:relative;padding-top:72px!important;overflow:hidden;isolation:isolate}
-.poster-bg{position:absolute;inset:0 0 auto;height:calc(100% - 40px);z-index:-1;background:url(img/poster-wide.webp) center/cover;filter:blur(40px) saturate(1.4) brightness(.55);transform:scale(1.2)}
-.poster-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,var(--bg) 0%,transparent 40%)}
-.poster{display:block;width:min(100%,calc((100svh - 210px) * 16 / 9),1280px);margin:0 auto}
-.poster img{width:100%;height:auto;display:block;box-shadow:0 30px 80px rgba(0,0,0,.6)}
-.hero-bar{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px 32px;padding-top:22px;padding-bottom:8px}
-.facts{display:flex;flex-wrap:wrap;gap:16px 36px}
+.hero{position:relative;min-height:min(100svh,980px);display:flex;align-items:center;overflow:hidden;isolation:isolate;
+  background:radial-gradient(80% 90% at 0% 40%,#0d2236 0%,#0a1220 45%,var(--bg) 100%)}
+.hero-art{position:absolute;top:0;right:0;bottom:0;width:60%;z-index:-1}
+.hero-art img{width:100%;height:100%;object-fit:cover;object-position:60% 30%;
+  -webkit-mask:linear-gradient(90deg,transparent 0%,#000 30%);mask:linear-gradient(90deg,transparent 0%,#000 30%);
+  animation:slowzoom 20s ease-out both}
+.hero::after{content:"";position:absolute;inset:auto 0 0;height:22%;background:linear-gradient(0deg,var(--bg),transparent);z-index:-1}
+@keyframes slowzoom{from{transform:scale(1.06)}to{transform:scale(1)}}
+.hero-in{width:100%;padding-top:110px;padding-bottom:64px}
+.hero-date{display:inline-flex;align-items:center;gap:12px;font-family:var(--head);text-transform:uppercase;letter-spacing:.2em;font-size:15px;color:#fff;
+  padding:8px 16px;border:1px solid rgba(255,255,255,.25);border-radius:999px;background:rgba(0,0,0,.25);backdrop-filter:blur(6px)}
+.hero-date i{width:5px;height:5px;border-radius:50%;background:var(--red)}
+.h1{font-family:var(--head);font-weight:700;text-transform:uppercase;line-height:.86;margin:22px 0 18px;font-size:clamp(50px,5.3vw,104px);white-space:nowrap}
+.h1 span{display:block}
+.h1 .w{color:#f4f2ee;text-shadow:0 4px 30px rgba(0,0,0,.5)}
+.h1 .c{background:linear-gradient(180deg,#5fd3ff,#1593e6);-webkit-background-clip:text;background-clip:text;color:transparent;filter:drop-shadow(0 6px 30px rgba(21,147,230,.35))}
+.triad{font-family:var(--head);text-transform:uppercase;letter-spacing:.16em;font-size:clamp(14px,1.4vw,18px);color:#e6e3de}
+.triad i{color:var(--red);font-style:normal;margin:0 .45em}
+.facts{display:flex;flex-wrap:wrap;gap:16px 34px;margin:30px 0 32px}
 .fact{display:flex;gap:12px;align-items:center}
-.fact svg{width:34px;height:34px;color:var(--red);flex:none}
+.fact svg{width:32px;height:32px;color:var(--red);flex:none}
 .fact strong{display:block;font-family:var(--head);font-size:19px;letter-spacing:.04em;text-transform:uppercase;line-height:1.1}
 .fact span{color:var(--muted);font-size:14px}
 .cta-row{display:flex;flex-wrap:wrap;gap:12px}
+.hero-in>*{max-width:min(640px,46vw)}
+.hero-in>.h1{max-width:none}
+@media (min-width:1600px){.hero-art{width:58%}}
+@media (max-width:1100px) and (min-width:641px){
+  .hero{display:block;min-height:0}
+  .hero-art{position:relative;width:100%;height:auto;aspect-ratio:1254/695}
+  .hero-art img{-webkit-mask:linear-gradient(0deg,transparent 0%,#000 30%);mask:linear-gradient(0deg,transparent 0%,#000 30%)}
+  .hero-in{padding-top:0;margin-top:-60px;position:relative}
+  .hero-in>*{max-width:none}
+}
 
 /* ---------- ценности ---------- */
-.values{margin-top:32px;display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.values{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
 .val{padding:34px 20px;text-align:center}
 .val+.val{border-left:1px solid var(--line)}
 .val svg{width:44px;height:44px;color:var(--red);margin:0 auto 12px}
@@ -252,15 +274,23 @@ details.more[open] summary{margin-bottom:6px}
   body{font-size:15.5px}
   .logo{font-size:17px}
   .bar .btn{min-height:40px;padding:0 16px;font-size:14px}
-  .hero{padding-top:104px!important}
-  .poster{width:100%}
-  .poster img{box-shadow:none}
-  .poster-bg{display:none}
-  .hero-bar{padding-top:18px}
-  .facts{gap:14px 22px;width:100%}
-  .fact svg{width:28px;height:28px}
-  .fact strong{font-size:17px}
-  .cta-row{width:100%}
+  .hero{display:block;min-height:0;background:var(--bg);padding:106px 0 0!important}
+  .hero-art{position:relative;width:100%;height:auto;aspect-ratio:720/1120;margin:0}
+  .hero-art img{-webkit-mask:linear-gradient(0deg,transparent 0%,#000 22%);mask:linear-gradient(0deg,transparent 0%,#000 22%)}
+  .hero-art img{animation:none}
+  .hero::after{display:none}
+  .hero-in{padding-top:0;padding-bottom:20px;margin-top:-40px;position:relative}
+  .hero-in>*{max-width:none}
+  .triad{display:none}
+  .facts{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+  .fact{gap:8px}
+  .fact:nth-child(3){display:none}
+  .hero-date{display:none}
+  .h1{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);margin:0}
+  .facts{gap:10px;margin:0 0 18px}
+  .fact svg{width:22px;height:22px}
+  .fact strong{font-size:15px}
+  .fact span{font-size:12px}
   .cta-row .btn{flex:1 1 100%}
   .values{grid-template-columns:repeat(3,1fr)}
   .val{padding:22px 6px}
@@ -302,6 +332,7 @@ details.more[open] summary{margin-bottom:6px}
   <symbol id="i-tg" viewBox="0 0 24 24" fill="currentColor"><path d="M21.9 4.3 18.8 19c-.2 1-.8 1.3-1.7.8l-4.7-3.5-2.3 2.2c-.3.3-.5.5-1 .5l.3-4.8 8.8-7.9c.4-.3-.1-.5-.6-.2L6.7 12.9 2 11.4c-1-.3-1-1 .2-1.5L20.6 3c.8-.3 1.6.2 1.3 1.3z"/></symbol>
   <symbol id="i-cal" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/><path d="M7 14h2M11 14h2M15 14h2M7 17h2M11 17h2" stroke-linecap="round"/></symbol>
   <symbol id="i-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 22s7-6.2 7-12a7 7 0 1 0-14 0c0 5.8 7 12 7 12z"/><circle cx="12" cy="10" r="2.6"/></symbol>
+  <symbol id="i-ticket" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"><path d="M3 7h18v3a2 2 0 0 0 0 4v3H3v-3a2 2 0 0 0 0-4z"/><path d="M15 7v10" stroke-dasharray="2 2"/></symbol>
   <symbol id="i-x" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"/></symbol>
   <symbol id="i-play" viewBox="0 0 24 24" fill="#fff"><path d="M7 4.5v15l13-7.5z"/></symbol>
 </svg>
@@ -328,18 +359,20 @@ details.more[open] summary{margin-bottom:6px}
 </header>
 
 <main>
-  <section class="hero" style="padding:0">
-    <h1 class="sr-only">Быть мужчиной — мужская конференция. 22 ноября 2026, Пхукет</h1>
-    <div class="poster-bg" aria-hidden="true"></div>
-    <picture class="poster">
-      <source media="(max-width:767px)" srcset="img/poster-tall.webp" type="image/webp">
-      <source srcset="img/poster-wide.webp" type="image/webp">
-      <img src="img/poster-wide.jpg" alt="Мужская конференция «Быть мужчиной». Характер. Ценности. Отцовство. Пхукет, 22 ноября" fetchpriority="high" width="1280" height="720">
+  <section class="hero">
+    <picture class="hero-art">
+      <source media="(max-width:640px)" srcset="img/hero-tall.webp" type="image/webp">
+      <source srcset="img/hero-wide.webp" type="image/webp">
+      <img src="img/hero-wide.jpg" alt="Мужчина распахивает рубашку, на футболке надпись «Быть мужчиной. Характер. Ценности. Отцовство»" fetchpriority="high">
     </picture>
-    <div class="wrap hero-bar">
+    <div class="wrap hero-in">
+      <p class="hero-date">22 ноября 2026 <i></i> Пхукет</p>
+      <h1 class="h1"><span class="w">Мужская</span><span class="c">конференция</span><span class="sr-only"> «Быть мужчиной»</span></h1>
+      <p class="triad">Характер<i>·</i>Ценности<i>·</i>Отцовство</p>
       <div class="facts">
-        <div class="fact"><svg><use href="#i-cal"/></svg><div><strong>22 ноября 2026</strong><span>12:00 – 18:00</span></div></div>
+        <div class="fact"><svg><use href="#i-cal"/></svg><div><strong>22 ноября</strong><span>12:00 – 18:00</span></div></div>
         <div class="fact"><svg><use href="#i-pin"/></svg><div><strong>Пхукет</strong><span>адрес уточняется</span></div></div>
+        <div class="fact"><svg><use href="#i-ticket"/></svg><div><strong>2 000 бат</strong><span>обед включён</span></div></div>
       </div>
       <div class="cta-row">
         <a class="btn btn-red" data-tg="ticket" href="#">Купить билет <svg><use href="#i-arrow"/></svg></a>
