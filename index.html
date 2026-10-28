@@ -7,7 +7,7 @@
 <meta name="description" content="Мужская конференция «Быть мужчиной»: характер, ценности, отцовство. 22 ноября 2026, Пхукет. Участие — 2 000 бат, обед включён.">
 <meta property="og:title" content="Быть мужчиной — конференция, 22 ноября, Пхукет">
 <meta property="og:description" content="Характер. Ценности. Отцовство. Участие — 2 000 бат, обед включён.">
-<meta property="og:image" content="https://bemen.club/img/og.jpg">
+<meta property="og:image" content="https://bemen.club/img/og.jpg?v=2">
 <meta property="og:url" content="https://bemen.club/">
 <meta property="og:type" content="website">
 <meta name="theme-color" content="#0b0b0c">
@@ -15,8 +15,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Manrope:wght@400;500;600;700&family=Caveat:wght@600&display=swap" rel="stylesheet">
-<link rel="preload" as="image" href="img/hero.webp" media="(min-width: 768px)">
-<link rel="preload" as="image" href="img/hero-m.webp" media="(max-width: 767px)">
+<link rel="preload" as="image" href="img/poster-wide.webp" media="(min-width: 768px)">
+<link rel="preload" as="image" href="img/poster-tall.webp" media="(max-width: 767px)">
 <style>
 :root{
   --bg:#0b0b0c; --bg2:#131315; --card:#161618; --line:rgba(255,255,255,.1);
@@ -47,7 +47,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 .link-more:hover{opacity:1;color:var(--red2)}
 
 /* ---------- шапка ---------- */
-header{position:fixed;inset:0 0 auto;z-index:40;transition:background .3s,backdrop-filter .3s}
+header{position:fixed;inset:0 0 auto;z-index:40;background:rgba(11,11,12,.92);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
 header.solid{background:rgba(11,11,12,.86);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
 .bar{display:flex;align-items:center;gap:24px;height:72px}
 .logo{font-family:var(--head);font-weight:700;line-height:.86;text-transform:uppercase;font-size:20px;letter-spacing:.01em}
@@ -57,32 +57,23 @@ header.solid{background:rgba(11,11,12,.86);backdrop-filter:blur(12px);-webkit-ba
 .tab:hover,.tab[aria-expanded=true]{background:rgba(255,255,255,.08);color:#fff}
 .bar .btn{min-height:44px;padding:0 22px;font-size:15px}
 
-/* ---------- первый экран ---------- */
-.hero{position:relative;min-height:100svh;display:flex;align-items:center;isolation:isolate;overflow:hidden}
-.hero picture,.hero picture img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2}
-.hero picture img{object-position:50% 55%;animation:slowzoom 24s ease-out both}
-@media (min-width:861px){.hero picture{left:auto;right:0;width:68%}}
-@keyframes slowzoom{from{transform:scale(1.08)}to{transform:scale(1)}}
-.hero::before{content:"";position:absolute;inset:0;z-index:-1;
-  background:linear-gradient(90deg,var(--bg) 0%,var(--bg) 32%,rgba(11,11,12,.55) 46%,rgba(11,11,12,0) 66%),
-             linear-gradient(0deg,var(--bg) 0%,rgba(11,11,12,0) 30%)}
-.hero .wrap{width:100%;padding-top:96px;padding-bottom:56px}
-.h1{font-family:var(--head);font-weight:700;text-transform:uppercase;line-height:.88;font-size:clamp(64px,10.5vw,148px);letter-spacing:-.005em}
-.h1 .r{color:var(--red);display:block;text-shadow:0 6px 40px rgba(227,36,27,.35)}
-.kicker{font-family:var(--head);color:var(--cyan);text-transform:uppercase;letter-spacing:.42em;font-size:clamp(16px,2vw,22px);margin:14px 0 6px}
-.triad{font-family:var(--head);text-transform:uppercase;letter-spacing:.16em;font-size:clamp(14px,1.6vw,18px);color:#ddd}
-.triad i{color:var(--red);font-style:normal;margin:0 .4em}
-.facts{display:flex;flex-wrap:wrap;gap:16px 36px;margin:28px 0 30px}
+/* ---------- первый экран: постер ---------- */
+.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.hero{position:relative;padding-top:72px!important;overflow:hidden;isolation:isolate}
+.poster-bg{position:absolute;inset:0 0 auto;height:calc(100% - 40px);z-index:-1;background:url(img/poster-wide.webp) center/cover;filter:blur(40px) saturate(1.4) brightness(.55);transform:scale(1.2)}
+.poster-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,var(--bg) 0%,transparent 40%)}
+.poster{display:block;width:min(100%,calc((100svh - 210px) * 16 / 9),1280px);margin:0 auto}
+.poster img{width:100%;height:auto;display:block;box-shadow:0 30px 80px rgba(0,0,0,.6)}
+.hero-bar{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px 32px;padding-top:22px;padding-bottom:8px}
+.facts{display:flex;flex-wrap:wrap;gap:16px 36px}
 .fact{display:flex;gap:12px;align-items:center}
 .fact svg{width:34px;height:34px;color:var(--red);flex:none}
 .fact strong{display:block;font-family:var(--head);font-size:19px;letter-spacing:.04em;text-transform:uppercase;line-height:1.1}
 .fact span{color:var(--muted);font-size:14px}
 .cta-row{display:flex;flex-wrap:wrap;gap:12px}
-.script{position:absolute;right:var(--pad);top:120px;font-family:'Caveat',cursive;font-size:clamp(28px,3vw,42px);line-height:1;transform:rotate(-6deg);text-align:center;color:#fff;text-shadow:0 2px 20px rgba(0,0,0,.6)}
-.script::after{content:"";display:block;width:70%;height:3px;margin:8px auto 0;background:var(--red);border-radius:2px;transform:rotate(-2deg)}
 
 /* ---------- ценности ---------- */
-.values{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.values{margin-top:32px;display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
 .val{padding:34px 20px;text-align:center}
 .val+.val{border-left:1px solid var(--line)}
 .val svg{width:44px;height:44px;color:var(--red);margin:0 auto 12px}
@@ -241,7 +232,6 @@ details.more[open] summary{margin-bottom:6px}
   .mtabs{display:flex;gap:6px;overflow-x:auto;scrollbar-width:none;padding:0 var(--pad) 10px;-webkit-mask:linear-gradient(90deg,#000 85%,transparent)}
   .mtabs::-webkit-scrollbar{display:none}
   .mtabs .tab{white-space:nowrap;background:rgba(255,255,255,.07);font-size:13px;padding:7px 12px}
-  .script{display:none}
   .speakers{grid-template-columns:1fr;gap:16px}
   .sp.main{order:-1}
   .sp{display:grid;grid-template-columns:42% 1fr;align-items:end}
@@ -262,16 +252,15 @@ details.more[open] summary{margin-bottom:6px}
   body{font-size:15.5px}
   .logo{font-size:17px}
   .bar .btn{min-height:40px;padding:0 16px;font-size:14px}
-  .hero{align-items:flex-end;min-height:100svh}
-  .hero picture img{object-position:50% 40%}
-  .hero::before{background:linear-gradient(0deg,var(--bg) 6%,rgba(11,11,12,.82) 45%,rgba(11,11,12,.15) 75%,rgba(11,11,12,.55) 100%)}
-  .hero .wrap{padding-top:130px;padding-bottom:28px}
-  .h1{font-size:clamp(58px,18.5vw,84px)}
-  .kicker{letter-spacing:.3em;font-size:15px;margin-top:10px}
-  .triad{font-size:13px;letter-spacing:.1em}
-  .facts{gap:14px 22px;margin:20px 0 22px}
+  .hero{padding-top:104px!important}
+  .poster{width:100%}
+  .poster img{box-shadow:none}
+  .poster-bg{display:none}
+  .hero-bar{padding-top:18px}
+  .facts{gap:14px 22px;width:100%}
   .fact svg{width:28px;height:28px}
   .fact strong{font-size:17px}
+  .cta-row{width:100%}
   .cta-row .btn{flex:1 1 100%}
   .values{grid-template-columns:repeat(3,1fr)}
   .val{padding:22px 6px}
@@ -340,16 +329,14 @@ details.more[open] summary{margin-bottom:6px}
 
 <main>
   <section class="hero" style="padding:0">
-    <picture>
-      <source media="(max-width:767px)" srcset="img/hero-m.webp" type="image/webp">
-      <source srcset="img/hero.webp" type="image/webp">
-      <img src="img/hero.jpg" alt="" fetchpriority="high">
+    <h1 class="sr-only">Быть мужчиной — мужская конференция. 22 ноября 2026, Пхукет</h1>
+    <div class="poster-bg" aria-hidden="true"></div>
+    <picture class="poster">
+      <source media="(max-width:767px)" srcset="img/poster-tall.webp" type="image/webp">
+      <source srcset="img/poster-wide.webp" type="image/webp">
+      <img src="img/poster-wide.jpg" alt="Мужская конференция «Быть мужчиной». Характер. Ценности. Отцовство. Пхукет, 22 ноября" fetchpriority="high" width="1280" height="720">
     </picture>
-    <p class="script" aria-hidden="true">Настоящий мужчина<br>оставляет след</p>
-    <div class="wrap">
-      <h1 class="h1"><span class="r">Быть</span>мужчиной</h1>
-      <p class="kicker">Конференция</p>
-      <p class="triad">Характер<i>·</i>Ценности<i>·</i>Отцовство</p>
+    <div class="wrap hero-bar">
       <div class="facts">
         <div class="fact"><svg><use href="#i-cal"/></svg><div><strong>22 ноября 2026</strong><span>12:00 – 18:00</span></div></div>
         <div class="fact"><svg><use href="#i-pin"/></svg><div><strong>Пхукет</strong><span>адрес уточняется</span></div></div>
@@ -429,7 +416,7 @@ details.more[open] summary{margin-bottom:6px}
             <h3><span>Александр</span>Дубынин</h3>
             <p class="role">Пастор, педагог-психолог, семейный консультант</p>
             <p class="tlabel">Тема выступления</p>
-            <p class="topic">Партнёрство для роста</p>
+            <p class="topic">Партнёрство для роста и развития</p>
             <svg class="arr"><use href="#i-arrow"/></svg>
           </div>
         </button>
@@ -504,7 +491,7 @@ details.more[open] summary{margin-bottom:6px}
           <div>
             <h3><span class="r">Михаил</span> Шабронов</h3>
             <p class="sub">Миссионер, пастор церкви, богослов и психолог.</p>
-            <p class="tp"><b>Тема выступления</b>Наивысшее предназначение мужчины</p>
+            <p class="tp"><b>Тема выступления</b>Наивысшее предназначение мужчины — стать отцом</p>
             <p>Автор образовательных курсов по личностному росту, семейным отношениям и духовной жизни. Имеет более 30 лет опыта публичных выступлений.</p>
             <details class="more"><summary>Подробнее</summary>
               <p>Участник международных конференций и семинаров, посвящённых лидерству, семье и личностному развитию.</p>
@@ -536,7 +523,7 @@ details.more[open] summary{margin-bottom:6px}
           <div>
             <h3><span class="r">Александр</span> Дубынин</h3>
             <p class="sub">Пастор, педагог-психолог, семейный консультант.</p>
-            <p class="tp"><b>Тема выступления</b>Партнёрство для роста</p>
+            <p class="tp"><b>Тема выступления</b>Партнёрство для роста и развития</p>
             <p>Родом из Сибири. Основатель просветительского учреждения «Отцовство» на Дальнем Востоке. Автор курсов по наставничеству и семейным отношениям, редактор курса о прощении.</p>
             <details class="more"><summary>Подробнее</summary>
               <p>Спикер международных конференций в Турции, Узбекистане, Молдове, Беларуси, Южной Корее и ЮАР.</p>
@@ -554,17 +541,15 @@ details.more[open] summary{margin-bottom:6px}
       <div class="pane" id="p-program" role="tabpanel" hidden>
         <h2>Программа <em>22 ноября</em></h2>
         <div class="tl">
-          <div class="row"><div class="t">12:00–12:30</div><div class="w"><strong>Сбор участников</strong><span>Чай, кофе · открытие фотозоны · общение и знакомство</span></div></div>
-          <div class="row"><div class="t">12:30–13:00</div><div class="w"><strong>Открытие конференции</strong><span>Вступление · видеоролик «Почему эта тема важна» · знакомство со спикерами</span></div></div>
-          <div class="row hl"><div class="t">13:00–14:15</div><div class="w"><strong>Тема 1</strong><span>«Наивысшее предназначение мужчины — стать отцом»</span></div></div>
-          <div class="row"><div class="t">14:15–14:30</div><div class="w"><strong>Перерыв</strong><span>Чай, кофе, общение</span></div></div>
-          <div class="row hl"><div class="t">14:30–15:45</div><div class="w"><strong>Тема 2</strong><span>«Цель и направление семьи». Почему отец должен понимать, куда он ведёт свою семью и какие ценности передаёт детям</span></div></div>
+          <div class="row"><div class="t">12:00–12:30</div><div class="w"><strong>Сбор участников</strong><span>Чай, кофе · открытие фотозоны</span></div></div>
+          <div class="row"><div class="t">12:30–13:00</div><div class="w"><strong>Открытие конференции</strong></div></div>
+          <div class="row hl"><div class="t">13:00–14:15</div><div class="w"><strong>Тема 1</strong><span>«Наивысшее предназначение мужчины — стать отцом» · Михаил Шабронов</span></div></div>
+          <div class="row"><div class="t">14:15–14:30</div><div class="w"><strong>Перерыв</strong><span>Чай, кофе</span></div></div>
+          <div class="row hl"><div class="t">14:30–15:45</div><div class="w"><strong>Тема 2</strong><span>«Целеустремлённая жизнь» · Александр Величко</span></div></div>
           <div class="row"><div class="t">15:45–16:15</div><div class="w"><strong>Обед</strong><span>Входит в стоимость участия</span></div></div>
-          <div class="row hl"><div class="t">16:15–17:30</div><div class="w"><strong>Практическая часть</strong><span>Обсуждение и практическое применение</span></div></div>
-          <div class="row"><div class="t">17:30–18:00</div><div class="w"><strong>Завершение конференции</strong><span>Подведение итогов · презентация Мужского клуба · благодарность участникам</span></div></div>
-          <div class="row"><div class="t">18:00</div><div class="w"><strong>Чай и свободное общение</strong></div></div>
+          <div class="row hl"><div class="t">16:15–17:30</div><div class="w"><strong>Тема 3</strong><span>«Партнёрство для роста и развития» · Александр Дубынин</span></div></div>
+          <div class="row"><div class="t">17:30–18:00</div><div class="w"><strong>Завершение конференции</strong><span>Подведение итогов</span></div></div>
         </div>
-        <p class="motto">Сильный отец<i>·</i>сильная семья<i>·</i>сильное поколение</p>
         <a class="btn btn-red" data-tg="ticket" href="#">Купить билет <svg><use href="#i-arrow"/></svg></a>
       </div>
 
@@ -585,7 +570,7 @@ details.more[open] summary{margin-bottom:6px}
         <details><summary>Сколько стоит участие?</summary><p>2 000 бат. В стоимость входит участие в конференции и обед, в перерывах — чай и кофе.</p></details>
         <details><summary>Когда и где?</summary><p>22 ноября 2026 года, с 12:00 до 18:00, Пхукет. Точный адрес уточняется — сообщим его после покупки билета.</p></details>
         <details><summary>Для кого эта конференция?</summary><p>Для мужчин, которые хотят осознанно строить жизнь, укреплять характер, развивать отношения в семье и быть опорой для близких.</p></details>
-        <details><summary>Какие темы будут?</summary><p>Предназначение мужчины, цель и направление семьи, целеустремлённая жизнь, партнёрство для роста. Подробнее — во вкладке «Программа».</p></details>
+        <details><summary>Какие темы будут?</summary><p>Три выступления: «Наивысшее предназначение мужчины — стать отцом», «Целеустремлённая жизнь» и «Партнёрство для роста и развития». Время каждого — во вкладке «Программа».</p></details>
         <details><summary>Не нашёл ответа на свой вопрос</summary><p>Напишите нам — ответим лично.</p><a class="btn btn-ghost" data-tg="question" href="#" style="margin:0 0 16px"><svg><use href="#i-tg"/></svg> Задать вопрос</a></details>
       </div>
 
