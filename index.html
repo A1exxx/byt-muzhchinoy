@@ -476,6 +476,7 @@ details.more[open] summary{margin-bottom:6px}
   <div class="wrap">
     <span>«Быть мужчиной» · 22 ноября 2026 · Пхукет</span>
     <span>Билеты и вопросы — <a data-tg="question" href="#">в Telegram</a></span>
+    <span class="legal-links" hidden><a href="legal/terms.html">Условия участия</a> · <a href="legal/refund.html">Возврат</a> · <a href="legal/privacy.html">Конфиденциальность</a></span>
   </div>
 </footer>
 
@@ -602,7 +603,7 @@ details.more[open] summary{margin-bottom:6px}
 
       <div class="pane faq" id="p-faq" role="tabpanel" hidden>
         <h2>Вопросы</h2>
-        <details open><summary>Как купить билет?</summary><p>Нажмите «Купить билет» — откроется переписка с организатором в Telegram. Он ответит и объяснит, как оплатить участие.</p></details>
+        <details open><summary>Как купить билет?</summary><p id="faq-buy">Нажмите «Купить билет» — откроется переписка с организатором в Telegram. Он ответит и объяснит, как оплатить участие.</p></details>
         <details><summary>Сколько стоит участие?</summary><p>2 000 бат. В стоимость входит участие в конференции и обед, в перерывах — чай и кофе.</p></details>
         <details><summary>Когда и где?</summary><p>22 ноября 2026 года, с 12:00 до 18:00, Пхукет. Точный адрес уточняется — сообщим его после покупки билета.</p></details>
         <details><summary>Для кого эта конференция?</summary><p>Для мужчин, которые хотят осознанно строить жизнь, укреплять характер, развивать отношения в семье и быть опорой для близких.</p></details>
@@ -616,6 +617,11 @@ details.more[open] summary{margin-bottom:6px}
 
 <script>
 (() => {
+  // ===== настройки оплаты =====
+  // stripeLink — ссылка Stripe Payment Link (https://buy.stripe.com/...). Пусто — «Купить билет» ведёт в Telegram.
+  // legalReady — true, когда в legal/*.html заполнены данные организатора: тогда в подвале появятся ссылки на условия.
+  const PAY = { stripeLink: '', legalReady: false };
+
   // все кнопки ведут в личку организатора в Telegram, с готовым первым сообщением
   const TG = 'elena_izmerova90';
   const MSG = {
@@ -623,11 +629,22 @@ details.more[open] summary{margin-bottom:6px}
     question: 'Здравствуйте! У меня вопрос о конференции «Быть мужчиной» 22 ноября.',
     address:  'Здравствуйте! Подскажите, где пройдёт конференция «Быть мужчиной» 22 ноября?'
   };
+  // откуда пришёл человек (?utm_source=instagram) — передаём в Stripe и в сообщение в Telegram
+  const src = (new URLSearchParams(location.search).get('utm_source') || '').replace(/[^\w-]/g, '').slice(0, 40);
   document.querySelectorAll('[data-tg]').forEach(a => {
-    a.href = `https://t.me/${TG}?text=${encodeURIComponent(MSG[a.dataset.tg] || MSG.question)}`;
+    if (a.dataset.tg === 'ticket' && PAY.stripeLink) {
+      a.href = PAY.stripeLink + (src ? `?client_reference_id=${src}` : '');
+      return;
+    }
+    const text = (MSG[a.dataset.tg] || MSG.question) + (src ? ` (${src})` : '');
+    a.href = `https://t.me/${TG}?text=${encodeURIComponent(text)}`;
     a.target = '_blank';
     a.rel = 'noopener';
   });
+  if (PAY.stripeLink) {
+    document.getElementById('faq-buy').textContent = 'Нажмите «Купить билет» и оплатите картой на защищённой странице Stripe. Квитанция придёт на e-mail — это и есть билет. На входе достаточно назвать имя.';
+  }
+  if (PAY.legalReady) document.querySelectorAll('.legal-links').forEach(el => el.hidden = false);
 
   // окно с вкладками
   const sheet = document.getElementById('sheet');
