@@ -158,6 +158,16 @@ section{padding:72px 0 0}
 .sp:hover .arr{transform:translateX(4px);color:var(--red2)}
 
 /* ---------- финальный призыв ---------- */
+.venue{display:grid;grid-template-columns:1fr 1.25fr;gap:32px;align-items:stretch;padding:28px;border:1px solid var(--line);border-radius:var(--r);
+  background:radial-gradient(90% 120% at 0% 0%,rgba(63,198,230,.08),transparent 60%),var(--card)}
+.venue-txt{display:flex;flex-direction:column;justify-content:center;min-width:0}
+.venue-name{font-family:var(--head);font-weight:700;font-size:clamp(30px,3.4vw,44px);text-transform:uppercase;line-height:1.05;margin-top:22px}
+.venue-addr{color:#d6d3ce;font-size:17px;margin-top:8px}
+.venue-when{font-family:var(--head);color:var(--cyan);letter-spacing:.08em;text-transform:uppercase;font-size:16px;margin:12px 0 22px}
+.venue-map{position:relative;display:block;min-height:320px;border-radius:12px;overflow:hidden;background:#1a1a1d;border:1px solid var(--line)}
+.venue-map::before{content:"Novotel Phuket Resort · Патонг";position:absolute;inset:0;display:grid;place-items:center;padding-top:70px;font-family:var(--head);text-transform:uppercase;letter-spacing:.08em;color:var(--muted);font-size:15px;
+  background:radial-gradient(circle at 50% 42%,rgba(227,36,27,.9) 0 13px,rgba(227,36,27,.25) 14px 30px,transparent 31px),repeating-linear-gradient(0deg,transparent 0 38px,rgba(255,255,255,.05) 38px 39px),repeating-linear-gradient(90deg,transparent 0 38px,rgba(255,255,255,.05) 38px 39px),#141417}
+.venue-map iframe{position:absolute;inset:0;width:100%;height:100%;border:0;filter:grayscale(.25) contrast(1.05);pointer-events:none}
 .final{margin-top:80px;position:relative;overflow:hidden;border-top:1px solid var(--line);
   background:radial-gradient(60% 120% at 15% 50%,rgba(227,36,27,.22),transparent 60%),var(--bg2)}
 .final .wrap{display:grid;grid-template-columns:1.2fr 1fr;gap:40px;align-items:center;padding-top:64px;padding-bottom:64px}
@@ -319,6 +329,9 @@ details.more[open] summary{margin-bottom:6px}
   section{padding-top:52px}
   .sec-head{margin-bottom:20px}
   .final{margin-top:56px}
+  .venue{grid-template-columns:1fr;padding:20px;gap:20px}
+  .venue-map{min-height:240px}
+  .venue .cta-row .btn{flex:1 1 100%}
   .final .wrap{padding-top:44px;padding-bottom:44px}
   .final-cta .btn{width:100%}
   footer{padding-bottom:calc(96px + env(safe-area-inset-bottom))}
@@ -386,7 +399,7 @@ details.more[open] summary{margin-bottom:6px}
       <p class="triad">Характер<i>·</i>Ценности<i>·</i>Отцовство</p>
       <div class="facts">
         <div class="fact"><svg><use href="#i-cal"/></svg><div><strong>22 ноября</strong><span>12:00 – 18:00</span></div></div>
-        <div class="fact"><svg><use href="#i-pin"/></svg><div><strong>Пхукет</strong><span>адрес уточняется</span></div></div>
+        <div class="fact"><svg><use href="#i-pin"/></svg><div><strong>Novotel Phuket</strong><span>Патонг, Пхукет</span></div></div>
         <div class="fact"><svg><use href="#i-ticket"/></svg><div><strong><s>2 000</s> 1 000 THB</strong><span>обед включён</span></div></div>
       </div>
       <div class="cta-row">
@@ -468,6 +481,26 @@ details.more[open] summary{margin-bottom:6px}
             <svg class="arr"><use href="#i-arrow"/></svg>
           </div>
         </button>
+      </div>
+    </div>
+  </section>
+
+  <section id="venue-sec">
+    <div class="wrap">
+      <div class="venue rv">
+        <div class="venue-txt">
+          <h2 class="h2">Место</h2>
+          <p class="venue-name">Novotel Phuket Resort</p>
+          <p class="venue-addr">282 Prabaramee Rd., Патонг, Катху, Пхукет 83150</p>
+          <p class="venue-when">22 ноября 2026 · 12:00 – 18:00</p>
+          <div class="cta-row">
+            <a class="btn btn-red" href="https://maps.app.goo.gl/HiskbSMJtTyX6q1TA" target="_blank" rel="noopener"><svg><use href="#i-pin"/></svg> Открыть на карте</a>
+            <a class="btn btn-ghost" data-tg="address" href="#">Как добраться?</a>
+          </div>
+        </div>
+        <a class="venue-map" href="https://maps.app.goo.gl/HiskbSMJtTyX6q1TA" target="_blank" rel="noopener" aria-label="Novotel Phuket Resort на Google Картах">
+          <iframe src="https://www.google.com/maps?q=Novotel+Phuket+Resort,+282+Phrabaramee+Rd,+Patong,+Phuket&z=15&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Карта: Novotel Phuket Resort, Патонг" tabindex="-1"></iframe>
+        </a>
       </div>
     </div>
   </section>
@@ -617,16 +650,21 @@ details.more[open] summary{margin-bottom:6px}
           <span class="chip">📅 <b>22 ноября 2026</b>, суббота</span>
           <span class="chip">🕛 12:00 – 18:00</span>
         </div>
-        <p class="lead">Конференция пройдёт на Пхукете. Точный адрес сейчас уточняется.</p>
-        <p>Как только место будет подтверждено, адрес появится здесь. Участникам, купившим билет, мы сообщим его лично в Telegram.</p>
-        <a class="btn btn-ghost" data-tg="address" href="#"><svg><use href="#i-tg"/></svg> Узнать адрес</a>
+        <p class="lead"><b>Novotel Phuket Resort</b><br>282 Prabaramee Rd., Патонг, Катху, Пхукет 83150</p>
+        <a class="venue-map" style="min-height:300px;margin:6px 0 16px" href="https://maps.app.goo.gl/HiskbSMJtTyX6q1TA" target="_blank" rel="noopener" aria-label="Открыть на Google Картах">
+          <iframe src="https://www.google.com/maps?q=Novotel+Phuket+Resort,+282+Phrabaramee+Rd,+Patong,+Phuket&z=15&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Карта: Novotel Phuket Resort" tabindex="-1"></iframe>
+        </a>
+        <div class="cta-row">
+          <a class="btn btn-red" href="https://maps.app.goo.gl/HiskbSMJtTyX6q1TA" target="_blank" rel="noopener"><svg><use href="#i-pin"/></svg> Открыть на карте</a>
+          <a class="btn btn-ghost" data-tg="address" href="#"><svg><use href="#i-tg"/></svg> Как добраться?</a>
+        </div>
       </div>
 
       <div class="pane faq" id="p-faq" role="tabpanel" hidden>
         <h2>Вопросы</h2>
         <details open><summary>Как купить билет?</summary><p id="faq-buy">Нажмите «Купить билет» — откроется переписка с организатором в Telegram. Он ответит и объяснит, как оплатить участие.</p></details>
         <details><summary>Сколько стоит участие?</summary><p>1 000 бат вместо 2 000. В стоимость билета входят кофе-брейки, обед, доступ к эксклюзивным материалам и дополнительным ресурсам по темам конференции, нетворкинг и возможность участия в будущих мероприятиях.</p></details>
-        <details><summary>Когда и где?</summary><p>22 ноября 2026 года, с 12:00 до 18:00, Пхукет. Точный адрес уточняется — сообщим его после покупки билета.</p></details>
+        <details><summary>Когда и где?</summary><p>22 ноября 2026 года, с 12:00 до 18:00. Отель Novotel Phuket Resort, 282 Prabaramee Rd., Патонг, Катху, Пхукет 83150. <a href="https://maps.app.goo.gl/HiskbSMJtTyX6q1TA" target="_blank" rel="noopener">Открыть на карте</a>.</p></details>
         <details><summary>Для кого эта конференция?</summary><p>Для мужчин, которые хотят осознанно строить жизнь, укреплять характер, развивать отношения в семье и быть опорой для близких.</p></details>
         <details><summary>Какие темы будут?</summary><p>Три выступления: «Наивысшее предназначение мужчины — стать отцом», «Целеустремлённая жизнь» и «Партнёрство для роста и развития». Время каждого — во вкладке «Программа».</p></details>
         <details><summary>Не нашёл ответа на свой вопрос</summary><p>Напишите нам — ответим лично.</p><a class="btn btn-ghost" data-tg="question" href="#" style="margin:0 0 16px"><svg><use href="#i-tg"/></svg> Задать вопрос</a></details>
@@ -650,7 +688,7 @@ details.more[open] summary{margin-bottom:6px}
   const MSG = {
     ticket:   'Здравствуйте! Хочу купить билет на конференцию «Быть мужчиной» 22 ноября. Подскажите, как оплатить?',
     question: 'Здравствуйте! У меня вопрос о конференции «Быть мужчиной» 22 ноября.',
-    address:  'Здравствуйте! Подскажите, где пройдёт конференция «Быть мужчиной» 22 ноября?',
+    address:  'Здравствуйте! Подскажите, как лучше добраться до Novotel Phuket Resort на конференцию «Быть мужчиной» 22 ноября?',
     altpay:   'Здравствуйте! Хочу купить билет на «Быть мужчиной» 22 ноября, но карта не подходит. Как ещё можно оплатить?'
   };
   // откуда пришёл человек (?utm_source=instagram) — передаём в Stripe и в сообщение в Telegram
