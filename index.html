@@ -1,6 +1,14 @@
 <!doctype html>
 <html lang="ru">
 <head>
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtm.js?id=GTM-KL3QNM4K"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+</script>
+
 <noscript><style>.hero-art img{opacity:1!important}</style></noscript>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
@@ -697,7 +705,10 @@ details.more[open] summary{margin-bottom:6px}
   const qs = new URLSearchParams(location.search);
   const src = (qs.get('utm_source') || qs.get('ref') || (qs.has('fbclid') ? 'meta-ads' : '')).replace(/[^\w-]/g, '').slice(0, 40);
   // счётчик: каждое нажатие кнопки, ведущей к организатору, — отдельное событие («ticket», «question»…)
-  const track = name => window.goatcounter?.count?.({ path: 'click-' + name + (src ? '-' + src : ''), title: 'Нажатие: ' + name, event: true });
+  const track = name => {
+    window.goatcounter?.count?.({ path: 'click-' + name + (src ? '-' + src : ''), title: 'Нажатие: ' + name, event: true });
+    window.gtag?.('event', 'click_' + name, { source: src || 'direct' });
+  };
   document.querySelectorAll('[data-tg]').forEach(a => {
     a.addEventListener('click', () => track(a.dataset.tg));
     if (a.dataset.tg === 'ticket' && PAY.stripeLink) {
