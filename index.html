@@ -693,8 +693,13 @@ details.more[open] summary{margin-bottom:6px}
     altpay:   'Здравствуйте! Хочу купить билет на «Быть мужчиной» 22 ноября, но карта не подходит. Как ещё можно оплатить?'
   };
   // откуда пришёл человек (?utm_source=instagram) — передаём в Stripe и в сообщение в Telegram
-  const src = (new URLSearchParams(location.search).get('utm_source') || '').replace(/[^\w-]/g, '').slice(0, 40);
+  // (?ref=flyer — короткая метка для QR; fbclid без метки — значит пришёл с рекламы Facebook/Instagram)
+  const qs = new URLSearchParams(location.search);
+  const src = (qs.get('utm_source') || qs.get('ref') || (qs.has('fbclid') ? 'meta-ads' : '')).replace(/[^\w-]/g, '').slice(0, 40);
+  // счётчик: каждое нажатие кнопки, ведущей к организатору, — отдельное событие («ticket», «question»…)
+  const track = name => window.goatcounter?.count?.({ path: 'click-' + name + (src ? '-' + src : ''), title: 'Нажатие: ' + name, event: true });
   document.querySelectorAll('[data-tg]').forEach(a => {
+    a.addEventListener('click', () => track(a.dataset.tg));
     if (a.dataset.tg === 'ticket' && PAY.stripeLink) {
       a.href = PAY.stripeLink + (src ? `?client_reference_id=${src}` : '');
       return;
@@ -774,5 +779,6 @@ details.more[open] summary{margin-bottom:6px}
   document.querySelectorAll('.rv').forEach(el => io.observe(el));
 })();
 </script>
+<script data-goatcounter="https://stats.84-247-148-135.sslip.io/count" async src="https://stats.84-247-148-135.sslip.io/count.js"></script>
 </body>
 </html>
