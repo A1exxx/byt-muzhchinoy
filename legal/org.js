@@ -9,7 +9,7 @@ window.ORG = {
   address: '',     // адрес в Таиланде, как в Stripe
   email: '',       // почта для покупателей
   phone: '',       // телефон для покупателей, с кодом страны: +66 ...
-  telegram: 'elena_izmerova90'
+  telegram: '+66614149186'
 };
 
 // Ссылка Stripe Payment Link (https://buy.stripe.com/...). Пусто — «Купить билет» ведёт в Telegram к организатору.
